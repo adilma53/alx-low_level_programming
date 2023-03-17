@@ -19,7 +19,7 @@ putchar(str[i]);
 i++;
 }
 
-putchar('\n')
+putchar('\n');
 
 return (0);
 }
