@@ -1,15 +1,11 @@
 #include <stdio.h>
 
-
 /**
-  * print
+  * main - i have a simple function put that prints a string.
   */
 int main(void)
-/**
-  * this is function main.
-  */
-
 {
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
+
