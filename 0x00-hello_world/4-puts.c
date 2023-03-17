@@ -1,13 +1,12 @@
 #include <stdio.h>
 /**
 *
-*i used an array here.
+*i used an array here.(i deleted it :L)
 *
 *
 */
 int main(void)
 {
-char greeting[] = "\"Programming is like building a multilingual puzzle";
-puts(greeting);
+puts("\"Programming is like building a multilingual puzzle");
 return (0);
 }
