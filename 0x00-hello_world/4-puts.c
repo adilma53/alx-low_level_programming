@@ -1,9 +1,8 @@
 #include <stdio.h>
 /**
-*
-*i used an array here.(i deleted it :L)
-*
-*
+ *
+ * inside the mai i used puts function to print text.
+ *
 */
 int main(void)
 {
