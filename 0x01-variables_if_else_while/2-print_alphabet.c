@@ -16,6 +16,7 @@ int i = 0;
 while (str[i] != '\0')
 {
 putchar(str[i]);
+putchar('\n')
 i++;
 }
 return (0);
