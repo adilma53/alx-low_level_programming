@@ -1,14 +1,11 @@
-/**
- * simple code use puts function to print text.
- *
-*/
 #include <stdio.h>
+
+
+/**
+  * print_hello - Prints "Hello"
+  */
 int main(void)
 {
-/**
- * my puts function.
- *
-*/
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
