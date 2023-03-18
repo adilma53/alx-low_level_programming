@@ -14,12 +14,12 @@ int main(void)
 	int digit = 0;
 	while (true)
 	{
-		printf("%d\n", digit);
+		printf("%d", digit);
 		if (digit == 9)
 			break;
 
 		digit++;
 	}
-
+	printf("\n");
 	return (0);
 }
