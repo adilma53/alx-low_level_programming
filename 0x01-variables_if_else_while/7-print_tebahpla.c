@@ -20,8 +20,6 @@ int main(void)
 		putchar(str[i]);
 	}
 
-	putchar('\n');
-
 	return (0);
 }
 
