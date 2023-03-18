@@ -13,8 +13,9 @@ int main(void)
 	char str[] = "abcdefghijklmnopqrstuvwxyz";
 	int size = sizeof(str) / sizeof(str[0]);
 
+	int i;
 
-	for (int i = size - 1; i >= 0 ; i--)
+	for (i = size - 1; i >= 0 ; i--)
 	{
 		putchar(str[i]);
 	}
