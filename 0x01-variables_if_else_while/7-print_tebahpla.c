@@ -15,10 +15,12 @@ int main(void)
 
 	int i;
 
-	for (i = size - 1; i >= 0 ; i--)
+	for (i = size - 2; i >= 0 ; i--)
 	{
 		putchar(str[i]);
 	}
+
+	putchar('\n');
 
 	return (0);
 }
