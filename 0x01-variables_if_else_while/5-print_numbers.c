@@ -11,7 +11,8 @@
 
 int main(void)
 {
-	int digit = 0;
+	int digit = 0 ;
+
 	while (true)
 	{
 		printf("%d", digit);
