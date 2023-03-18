@@ -9,13 +9,12 @@
 int main(void)
 {
 	int i;
+	char c;
 
 	for (i = 0; i < 10; i++)
 	{
 		putchar(i + '0');
 	}
-
-	char c;
 
 	for (c = 'a'; c < 'g'; c++)
 	{
