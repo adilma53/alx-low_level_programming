@@ -10,16 +10,16 @@
 
 int main(void)
 {
-  char str[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  int i = 0;
+	char str[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int i = 0;
 
-  while (str[i] != '\0')
-  {
-    putchar(str[i]);
-    i++;
-  }
+	while (str[i] != '\0')
+	{
+		putchar(str[i]);
+		i++;
+	}
 
-  putchar('\n');
+	putchar('\n');
 
-  return (0);
+	return (0);
 }
