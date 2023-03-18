@@ -15,7 +15,7 @@ int main(void)
 		putchar(i + '0');
 	}
 
-	int c;
+	char c;
 
 	for (c = 'a'; c < 'g'; c++)
 	{
