@@ -23,7 +23,7 @@ int main(void)
 		putchar(ones_digit + '0');
 
 		if (i < 89)
-			printf(", ");
+			putchar(', ');
 	}
 
 	putchar('\n');
