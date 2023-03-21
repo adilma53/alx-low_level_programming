@@ -2,7 +2,7 @@
 
 /**
  * _islower - is char lower or upper case ?.
- *
+ * @c: character input.
  * Return: Returns 1 if c is lowercase , Returns 0 otherwise.
  */
 
