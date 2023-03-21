@@ -23,9 +23,16 @@ int main(void)
 		putchar(ones_digit + '0');
 
 		if (i < 89)
-			putchar(', ');
+		{
+			putchar(',');
+			putchar(' ');
+		}
+
 	}
 
 	putchar('\n');
 
+	return (0);
 }
+
+
