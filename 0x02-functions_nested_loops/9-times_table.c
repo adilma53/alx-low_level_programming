@@ -28,8 +28,16 @@ void times_table(void)
                                 _putchar(product + '0');
                         }
 
-                        _putchar(',');
-                        _putchar(' ');
+                        if (product > 9)
+                        {
+                                _putchar(',');
+                                _putchar('  ');
+                        }
+                        else
+                        {
+                                _putchar(',');
+                                _putchar(' ');
+                        }
 
                 }
                 _putchar('\n');
