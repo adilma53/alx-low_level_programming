@@ -3,7 +3,7 @@
 /**
 * times_table - prints multiplication table
 *
-* Return: 0
+* Return:
 */
 
 void times_table(void)
@@ -26,5 +26,5 @@ _putchar(',');
 _putchar('\n');
 }
 
-return 0;
+
 }
