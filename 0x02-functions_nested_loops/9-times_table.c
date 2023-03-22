@@ -1,25 +1,39 @@
 #include "main.h"
 
-
 /**
-* add - return sum
+* add - prints multiplication table
 *
-* Return: 0
+* Return: nada
 */
 
 void times_table(void)
 {
+        int j, i, product;
 
-int sum = a + b;
-if (sum > 9)
+        for (j = 0; j <= 9; j++)
+        {
+                for (i = 0; i <= 9; i++)
+                {
 
-{
-_putchar((sum / 10) + '0');
-_putchar((sum % 10) + '0');
-}
+                        product = j * i;
+                        if (product > 9)
 
-else
-{
-_putchar(sum + '0');
-}
+                        {
+                                _putchar((product / 10) + '0');
+                                _putchar((product % 10) + '0');
+                        }
+
+                        else
+                        {
+                                _putchar(product + '0');
+                        }
+
+                        _putchar(',');
+                        _putchar(' ');
+
+                }
+                _putchar('\n');
+
+        }
+
 }
