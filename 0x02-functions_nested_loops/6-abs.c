@@ -15,4 +15,9 @@ int print_sign(int n)
 		return (positive);
 
 	}
+	else
+	{
+		return (0);
+	}
+
 }
