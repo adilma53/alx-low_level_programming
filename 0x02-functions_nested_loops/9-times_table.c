@@ -2,39 +2,28 @@
 
 
 /**
-* times_table - prints multiplication table
+* add - return sum
 *
-* Return: nada
+* Return: 0
 */
 
-void times_table(void)
+int add(int a, int b)
 {
-    int j, i, product;
 
-    for (j = 0; j <= 9; j++)
-    {
-        for (i = 0; i <= 9; i++)
+
+
+        int sum = a + b;
+        if (sum > 9)
+
         {
-
-            product = j * i;
-            if (product > 9)
-
-            {
-                _putchar((product / 10) + '0');
-                _putchar((product % 10) + '0');
-            }
-
-            else
-            {
-                _putchar(product + '0');
-            }
-
-            _putchar(',');
-            _putchar(' ');
-
+                return (_putchar((sum / 10) + '0'));
+                return (_putchar((sum % 10) + '0'));
         }
-        _putchar('\n');
 
-    }
+        else
+        {
+                return (_putchar(sum + '0'));
+        }
+
 
 }
