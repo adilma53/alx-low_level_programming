@@ -6,7 +6,7 @@
  * Return: Returns absolute number.
  */
 
-int print_sign(int n)
+int _abs(int n)
 {
 	if (n < 0)
 	{
