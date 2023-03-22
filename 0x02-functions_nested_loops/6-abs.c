@@ -10,14 +10,13 @@ int print_sign(int n)
 {
 	if (n < 0)
 	{
-		unsigned int positive = n;
 
-		return (positive);
+		return (n -= n * 2);
 
 	}
 	else
 	{
-		return (0);
+		return (n);
 	}
 
 }
