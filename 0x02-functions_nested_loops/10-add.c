@@ -9,21 +9,5 @@
 
 int add(int a, int b)
 {
-
-
-
-        sum = a + b;
-        if (sum > 9)
-
-        {
-                return (_putchar((sum / 10) + '0'));
-                return (_putchar((sum % 10) + '0'));
-        }
-
-        else
-        {
-                return (_putchar(sum + '0'));
-        }
-
-
+return (a + b);
 }
