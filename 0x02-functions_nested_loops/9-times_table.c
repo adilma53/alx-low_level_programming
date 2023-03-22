@@ -7,23 +7,19 @@
 * Return: 0
 */
 
-int add(int a, int b)
+void times_table(void)
 {
 
+int sum = a + b;
+if (sum > 9)
 
+{
+_putchar((sum / 10) + '0');
+_putchar((sum % 10) + '0');
+}
 
-        int sum = a + b;
-        if (sum > 9)
-
-        {
-                return (_putchar((sum / 10) + '0'));
-                return (_putchar((sum % 10) + '0'));
-        }
-
-        else
-        {
-                return (_putchar(sum + '0'));
-        }
-
-
+else
+{
+_putchar(sum + '0');
+}
 }
