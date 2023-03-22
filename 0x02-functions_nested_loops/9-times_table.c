@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-* times_table - prints multiplication table
+* time_teble - prints multiplication table
 *
 * Return:
 */
 
-void times_table(void)
+void time_teble(void)
 {
 int j, i, product;
 
@@ -15,10 +15,13 @@ for (j = 0; j <= 9; j++)
 for (i = 0; i <= 9; i++)
 {
 product = j * i;
-if (product > 9) {
+if (product > 9)
+{
 _putchar((product / 10) + '0');
 _putchar((product % 10) + '0');
-} else {
+}
+else
+{
 _putchar(product + '0');
 }
 _putchar(',');
