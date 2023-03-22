@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-* times_table - prints multiplication table
+* time_teble - prints multiplication table
 *
 * Return: nada
 */
 
-void times_table(void)
+void time_teble(void)
 {
     int j, i, product;
 
