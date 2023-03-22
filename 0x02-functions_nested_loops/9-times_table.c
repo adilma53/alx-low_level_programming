@@ -1,12 +1,12 @@
-// #include "main.h"
-#include <stdio.h>
+#include "main.h"
+
 /**
 * add - prints multiplication table
 *
 * Return: nada
 */
-int main()
-// void times_table(void)
+
+void times_table(void)
 {
         int j, i, product;
 
@@ -16,32 +16,33 @@ int main()
                 {
 
                         product = j * i;
+
                         if (product > 9)
 
                         {
-                                putchar((product / 10) + '0');
-                                putchar((product % 10) + '0');
+                                _putchar((product / 10) + '0');
+                                _putchar((product % 10) + '0');
                         }
 
                         else
                         {
-                                putchar(product + '0');
+                                _putchar(product + '0');
                         }
 
                         if (product < 10)
                         {
-                                putchar(',');
-                                putchar(' ');
-                                putchar(' ');
+                                _putchar(',');
+                                _putchar(' ');
+                                _putchar(' ');
                         }
                         else
                         {
-                                putchar(',');
-                                putchar(' ');
+                                _putchar(',');
+                                _putchar(' ');
                         }
 
                 }
-                putchar('\n');
+                _putchar('\n');
 
         }
 
