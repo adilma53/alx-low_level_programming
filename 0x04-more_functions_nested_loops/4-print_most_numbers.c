@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * print_numbers - print from 0 to 9 avoid 2 and 4.
+ *print_numbers - print from 0 to 9 avoid 2 and 4.
  *
- *
- * Return: nothing.
+ *Return: nothing.
  */
 
 void print_numbers(void)
