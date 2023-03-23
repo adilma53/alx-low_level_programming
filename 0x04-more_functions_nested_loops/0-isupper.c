@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * _islower - is char lower or upper case ?.
+ * _isupper - is char upper case ?.
  * @c: character input.
  * Return: Returns 1 if c is upper , Returns 0 otherwise.
  */
 
-int _islower(int c)
+int _isupper(int c)
 {
 
-    if (c >= 65 && c <= 90)
-    {
-        return (1);
+if (c >= 65 && c <= 90)
+{
+return (1);
 
-    }
-    else
-    {
-        return (0);
-    }
+}
+else
+{
+return (0);
+}
 
 }
