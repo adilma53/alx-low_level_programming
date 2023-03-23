@@ -41,6 +41,11 @@ void times_table(void)
             {
                 _putchar(',');
             }
+
+            if (i == 9)
+            {
+                _putchar(' ');
+            }
         }
         _putchar('\n');
 
