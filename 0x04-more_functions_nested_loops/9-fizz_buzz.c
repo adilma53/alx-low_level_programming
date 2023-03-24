@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/**
+* main - classic fizz buzz program
+*
+* Return: 0
+*/
+
 int main()
 {
 
@@ -48,4 +54,7 @@ putchar(i + '0');
 putchar(' ');
 }
 
+
+putchar('\n');
+return (0);
 }
