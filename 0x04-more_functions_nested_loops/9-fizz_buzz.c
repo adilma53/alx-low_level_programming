@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include "main.h"
+
 /**
-*main - classic fizz buzz program
+* main - entry point
 *
+* Description: prints the numbers 1 - 100,
+* Fizz if number multiples of 3, Buzz for multiples of 5,
+* and FizzBuzz for multiples of both of them
 *
-*Return: returns 0
+* Return: always 0
 */
 int main(void)
 {
