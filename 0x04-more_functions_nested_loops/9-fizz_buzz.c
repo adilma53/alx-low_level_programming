@@ -1,7 +1,6 @@
 #include <stdio.h>
 /**
-*main - program that prints either number
-*or fizz or buzz or fizzBuzz
+*main - classic fizz buzz program
 *
 *
 *Return: returns 0
@@ -28,7 +27,7 @@ printf(" ");
 }
 else
 {
-printf("%d", i);
+printf("!%d ", i);
 }
 
 }
