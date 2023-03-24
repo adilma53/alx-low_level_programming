@@ -1,14 +1,16 @@
 #include <stdio.h>
 
 /**
-* main - classic fizz buzz program
+* main - classic fizz buzz program.
 *
-* Return: 0
+* Return: returns 0.
 */
 
-int main(void)
+int main()
 {
+
 int i;
+
 for (i = 1; i <= 100; i++)
 {
 if ((i % 3 == 0) && (i % 5 == 0))
