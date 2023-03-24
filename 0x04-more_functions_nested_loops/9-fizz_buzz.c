@@ -1,14 +1,13 @@
 #include <stdio.h>
-
 /**
 *main - program that prints either number
-*or fizz or buzz or fizzBuzz.
+*or fizz or buzz or fizzBuzz
 *
-*Return: returns 0.
+*
+*Return: returns 0
 */
 int main(void)
 {
-
 int i;
 
 for (i = 1; i <= 100; i++)
@@ -23,17 +22,17 @@ printf("Fizz ");
 }
 else if (i % 5 == 0)
 {
-if (i != 100)
-printf("Buzz ");
-
-else
 printf("Buzz");
+if (i != 100)
+printf(" ");
 }
 else
 {
 printf("%d", i);
 }
+
 }
+
 printf("\n");
 return (0);
 }
