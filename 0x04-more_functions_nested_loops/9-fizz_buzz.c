@@ -1,14 +1,13 @@
 #include <stdio.h>
-
 /**
-*main - classic fizz buzz program.
+*main - program that prints either a digit
+*or print fizz or buzz, or fizzBuzz
 *
-*Return: returns 0.
+*
+*Return: returns 0
 */
-
 int main(void)
 {
-
 int i;
 
 for (i = 1; i <= 100; i++)
@@ -27,7 +26,7 @@ printf("Buzz");
 }
 else
 {
-printf("%d",i);
+printf("%d", i);
 }
 
 printf(" ");
