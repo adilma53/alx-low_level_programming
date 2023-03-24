@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* print_line - prints multiple #
+* print_square - prints multiple #
 * @size: input.
 * Return: nada
 */
