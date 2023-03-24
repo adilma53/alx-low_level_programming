@@ -2,18 +2,18 @@
 
 /**
 * print_line - prints multiple #
-* @n: input.
+* @size: input.
 * Return: nada
 */
 
-void print_line(int n)
+void print_square(int size)
 {
 
-if (n > 0)
+if (size > 0)
 {
-    while (n-- > 0)
+while (size-- > 0)
 {
-while (n-- > 0)
+while (size-- > 0)
 {
 _putchar('#');
 }
