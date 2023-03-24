@@ -1,8 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+
 int i;
 
 for (i = 1; i <= 100; i++)
 {
-if (i % 3 == 0)
+
+
+if ((i % 3 == 0) && (i % 5 == 0))
+{
+putchar('F');
+putchar('i');
+putchar('z');
+putchar('z');
+putchar('B');
+putchar('u');
+putchar('z');
+putchar('z');
+}
+else if (i % 3 == 0)
 {
 putchar('F');
 putchar('i');
@@ -28,4 +46,6 @@ putchar(i + '0');
 }
 }
 putchar(' ');
+}
+
 }
