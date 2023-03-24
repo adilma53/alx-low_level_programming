@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
-* main - classic fizz buzz program.
+*main - classic fizz buzz program.
 *
-* Return: returns 0.
+*Return: returns 0.
 */
 
-int main()
+int main(void)
 {
 
 int i;
@@ -27,19 +27,12 @@ printf("Buzz");
 }
 else
 {
-if (i > 9)
-{
-putchar((i / 10) + '0');
-putchar((i % 10) + '0');
-}
-else
-{
-putchar(i + '0');
-}
-}
-putchar(' ');
+printf("%d",i);
 }
 
-putchar('\n');
+printf(" ");
+}
+
+printf("\n");
 return (0);
 }
