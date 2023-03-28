@@ -18,15 +18,21 @@ while (str[length] != '\0')
 length++;
 }
 
+
 if (length % 2 != 0)
+{
 half = (length / 2) + 1;
+for (int i = half - 1 ; i < length; i++) {
+_putchar(str[i]);
+}
+}
 
 else
-half = (length / 2);
-
-for ( i = 0; i < half; i++)
 {
+half = (length / 2);
+for (int i = half ; i < length; i++) {
 _putchar(str[i]);
+}
 }
 _putchar('\n');
 }
