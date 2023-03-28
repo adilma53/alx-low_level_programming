@@ -12,7 +12,8 @@ int length = 0;
 int half;
 int i;
 
-while (str[length] != '\0') {
+while (str[length] != '\0')
+{
 length++;
 }
 
@@ -22,8 +23,10 @@ half = (length / 2) + 1;
 else
 half = (length / 2);
 
-for ( i = 0; i < half; i++) {
+for ( i = 0; i < half; i++)
+{
 _putchar(str[i]);
 }
+
 _putchar('\n');
 }
