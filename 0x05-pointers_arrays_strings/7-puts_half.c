@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
-* print_half - print half of a string
+* puts_half - print half of a string
 *  if string length not od prints length+1
 * @str: string to be printed
 */
 
-void print_half(char *str) {
+void puts_half(char *str)
+{
 
 int length = 0;
 int half;
@@ -27,6 +28,5 @@ for ( i = 0; i < half; i++)
 {
 _putchar(str[i]);
 }
-
 _putchar('\n');
 }
