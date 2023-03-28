@@ -21,7 +21,7 @@ length++;
 
 half = (length / 2);
 
-for (int i = half - 1 ; i < length; i++)
+for (i = half - 1 ; i < length; i++)
 {
 _putchar(str[i]);
 }
