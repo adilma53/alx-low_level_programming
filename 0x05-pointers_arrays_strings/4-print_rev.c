@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
 *print_rev - function that prints a string i nreverse
 *@s : string
@@ -9,15 +10,18 @@
 
 void print_rev(char *s)
 {
+
 int i;
+int j;
 int size;
 
-while (s[size] != '\0')
+while (s[j] != '\0')
 {
-size++;
+j++;
 }
 
 
+size = j;
 
 for (i = size - 1; i >= 0; i--)
 {
