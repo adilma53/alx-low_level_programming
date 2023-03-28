@@ -10,9 +10,9 @@ void puts2(char *str)
 
 int j=0;
 
-while (s[j] != '\0')
+while (str[j] != '\0')
 {
-_putachar(s[j]);
+_putachar(str[j]);
 _putachar('\n');
 j++;
 }
