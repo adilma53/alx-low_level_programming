@@ -22,15 +22,16 @@ length++;
 if (length % 2 != 0)
 {
 half = (length / 2) + 1;
-for (i = half - 1 ; i < length; i++) {
+for (i = half - 1 ; i < length; i++)
+{
 _putchar(str[i]);
 }
 }
-
 else
 {
 half = (length / 2);
-for (i = half ; i < length; i++) {
+for (i = half ; i < length; i++)
+{
 _putchar(str[i]);
 }
 }
