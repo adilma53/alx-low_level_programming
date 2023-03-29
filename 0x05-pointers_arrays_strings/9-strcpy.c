@@ -4,7 +4,7 @@
 * _strcpy -  that copies the string to another distination
 * @dest: distination
 * @src: source
-* return: destination
+* Return: destination
 */
 
 char *_strcpy(char *dest, char *src)
