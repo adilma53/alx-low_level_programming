@@ -5,24 +5,22 @@
 * @dest: distination
 * @src: source
 * @n: n number of source characters
+*
 * Return: destination
 */
 
 char *_strncpy(char *dest, char *src, int n)
 {
 
-int j ;
+int j;
 
 for (j = 0 ; src[j] != '\0' && j < n ; j++)
 {
 dest[j] = src[j];
 }
 
-while (j < n)
-{
+for ( ; j < n; j++)
 dest[j] = '\0';
-j++;
-}
 
 return (dest);
 }
