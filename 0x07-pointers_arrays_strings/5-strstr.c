@@ -34,10 +34,11 @@ counter++;
 }
 }
 
-if (length == counter)
-return (needle);
 
 }
+
+if (length == counter)
+return (needle);
 
 
 return (NULL);
