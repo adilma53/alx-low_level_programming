@@ -38,9 +38,9 @@ break;
 
 if (counter == length)
 {
-return &haystack[i];
+return (&haystack[i]);
 }
 }
 
-return NULL;
+return (NULL);
 }
