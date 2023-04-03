@@ -27,8 +27,9 @@ for (i = 0; needle[i] != '\0'; i++)
 
 for (j = 0; haystack[j] != '\0'; j++)
 {
-if (needle[i] == needle[j])
+if (needle[i] == needle[i])
 counter++;
+break;
 }
 
 }
