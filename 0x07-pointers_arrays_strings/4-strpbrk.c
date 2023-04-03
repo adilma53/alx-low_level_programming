@@ -3,7 +3,7 @@
 
 
 /**
-* _strspn - a function that searches a string for any of a set of bytes.
+* _strpbrk - a function that searches a string for any of a set of bytes.
 *
 * @s: input
 * @accept: input
@@ -22,11 +22,11 @@ for (j = 0; accept[j] != '\0'; j++)
 if (s[i] == accept[j])
 {
 
-return &s[i];
+return (&s[i]);
 }
 }
 }
 
 
-return NULL;
+return (NULL);
 }
