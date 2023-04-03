@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _memset - a function that copies memory area
+* _memcpy - a function that copies memory area
 *
 * @dest: input
 * @src: input
