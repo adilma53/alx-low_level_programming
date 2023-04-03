@@ -17,14 +17,14 @@ char temp;
 
 for (i = 0; i != '\0'; i++)
 {
-if (s[i] == c)
+if (*s == c)
 {
-s[i] = temp;
+return (s[i]);
 break;
 }
 }
 
-return (temp);
+return NULL;
 
 
 }
