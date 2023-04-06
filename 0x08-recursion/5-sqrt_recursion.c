@@ -5,13 +5,8 @@
 /**
 * find_sqrt - this function find the square root of n.
 *
-<<<<<<< HEAD
 * @x: input
 * @z: input
-=======
-* @a: input
-* @b: input
->>>>>>> 5604e370a1ffeff9611f462906d9cf765c1a3cfa
 *
 * Return: squar root of z or -1.
 */
@@ -33,8 +28,6 @@ else
 return (find_sqrt(1 + x, z));
 }
 }
-<<<<<<< HEAD
-=======
 
 /** By -{adilma53}- */
 
@@ -57,4 +50,3 @@ else
 return (find_sqrt(1, n));
 }
 }
->>>>>>> 5604e370a1ffeff9611f462906d9cf765c1a3cfa
