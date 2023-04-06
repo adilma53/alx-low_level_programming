@@ -56,8 +56,6 @@ return (check_palindrome(s, start + 1, end - 1));
 * is_palindrome - checks if a string is palindrome
 *
 * @s: input
-* @start: input
-* @end: input
 *
 * Return: 1 if palindrome and 0 if not.
 */
