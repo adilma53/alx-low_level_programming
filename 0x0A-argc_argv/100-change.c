@@ -49,6 +49,8 @@ return (0);
 else
 {
 
+
+
 count_change(change, counter);
 }
 
@@ -62,7 +64,15 @@ return (0);
 
 
 
-
+/**
+* count_change - finding how many change coins recursively
+*
+* @change: change needed
+* @counter: dominations counnter
+*
+* Return: counter
+*
+*/
 int count_change(int change, int counter)
 {
 
