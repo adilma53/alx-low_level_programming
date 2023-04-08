@@ -54,7 +54,7 @@ return (count_change(change - 1, counter + 1));
 
 int main(int argc, char *argv[])
 {
-if (argc == 1)
+if (argc != 2)
 {
 printf("Error\n");
 return (1);
