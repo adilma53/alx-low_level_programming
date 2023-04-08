@@ -46,14 +46,9 @@ return (0);
 }
 
 
-else
-{
 
-
-
-count_change(change, counter);
-}
-
+int result = count_change(change, counter);
+printf("%d\n",result);
 
 
 
@@ -78,8 +73,7 @@ int count_change(int change, int counter)
 
 if (change == 0)
 {
-printf("%d\n", counter);
-return (0);
+return (counter);
 }
 
 
