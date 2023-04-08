@@ -29,7 +29,7 @@ return (count_change(change - 5, counter + 1));
 else if (change >= 2)
 return (count_change(change - 2, counter + 1));
 
-else
+else if (change == 1)
 return (count_change(change - 1, counter + 1));
 
 }
@@ -48,6 +48,7 @@ return (count_change(change - 1, counter + 1));
 */
 
 
+
 int main(int argc, char *argv[])
 {
 
@@ -55,19 +56,19 @@ if (argc < 2)
 {
 printf("Error\n");
 return (1);
+} else if (change < 0)
+{
+printf("0\n");
+return (0);
 }
 
 int change = atoi(argv[1]);
 int counter = 0;
-
-if (change < 0)
-printf("0\n");
-
-else
-{
 int result = count_change(change, counter);
+
+
 printf("%d\n", result);
-}
+
 
 return (0);
 }
