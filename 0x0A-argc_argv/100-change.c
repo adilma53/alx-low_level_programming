@@ -10,10 +10,14 @@ int counter = 0;
 
 
 
-if(argc < 2)
+if(argc != 2)
 {
 printf("Error\n");
 return (1);
+}
+else if (change < 0)
+{
+printf("0\n");
 }
 else
 {
