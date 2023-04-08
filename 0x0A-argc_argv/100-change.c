@@ -46,32 +46,28 @@ return (count_change(change - 1, counter + 1));
 * Return: success 0 / fail 1
 *
 */
+
+
 int main(int argc, char *argv[])
 {
-
-int change = atoi(argv[1]);
-int counter = 0;
-
-
 
 if (argc < 2)
 {
 printf("Error\n");
 return (1);
 }
+
+int change = atoi(argv[1]);
+int counter = 0;
+
+if (change < 0)
+printf("0\n");
+
 else
 {
 int result = count_change(change, counter);
 printf("%d\n", result);
 }
 
-
 return (0);
 }
-
-
-
-
-
-
-
