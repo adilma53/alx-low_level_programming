@@ -51,23 +51,29 @@ return (count_change(change - 1, counter + 1));
 
 int main(int argc, char *argv[])
 {
-
-if (argc < 2)
+if (argc == 1)
 {
 printf("Error\n");
 return (1);
-} else if (change < 0)
-{
-printf("0\n");
-return (0);
 }
 
 int change = atoi(argv[1]);
 int counter = 0;
+
+
+if (change < 0)
+{
+printf("0\n");
+}
+else
+{
 int result = count_change(change, counter);
-
-
 printf("%d\n", result);
+}
+
+
+
+
 
 
 return (0);
