@@ -13,8 +13,11 @@
 int count_change(int change, int counter)
 {
 
-if (change <= 0)
-return (counter);
+if (change == 0)
+{
+printf("%d\n", counter);
+return (0);
+}
 
 
 if (change >= 25)
@@ -67,10 +70,9 @@ printf("0\n");
 }
 else
 {
-int result = count_change(change, counter);
-printf("%d\n", result);
-}
 
+count_change(change, counter);
+}
 
 
 
