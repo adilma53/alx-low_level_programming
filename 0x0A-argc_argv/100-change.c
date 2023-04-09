@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
 * count_change - finding how many change coins recursively
@@ -68,3 +69,4 @@ printf("%d\n", result);
 
 return (0);
 }
+
