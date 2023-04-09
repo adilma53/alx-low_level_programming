@@ -23,7 +23,7 @@ printf("Error\n");
 return (1);
 }
 change = atoi(argv[1]);
-if (change < 0)
+if (argc < 0)
 printf("0\n");
 while (change > 0)
 {
