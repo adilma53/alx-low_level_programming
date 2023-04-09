@@ -58,13 +58,15 @@ printf("Error\n");
 return (1);
 }
 
-if (argc < 0)
-printf("0\n");
-
-int change = atoi(argv[1]);
 int counter = 0;
-int result = count_change(change, counter);
+int change = atoi(argv[1]);
 
+if (argc < 0)
+{
+printf("0\n");
+}
+
+int result = count_change(change, counter);
 printf("%d\n", result);
 
 
