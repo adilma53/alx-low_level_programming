@@ -16,12 +16,13 @@
 
 int main(int argc, char *argv[])
 {
-int counter = 0, change = atoi(argv[1]);
-
+int counter = 0;
 if (argc != 2)
+{
 printf("Error\n");
 return (1);
-
+}
+int change = atoi(argv[1]);
 while (change > 0)
 {
 counter++;
