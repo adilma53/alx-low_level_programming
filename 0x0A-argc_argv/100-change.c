@@ -28,11 +28,6 @@ int counter = 0;
 while (change > 0)
 {
 counter++;
-if (change < 0)
-{
-printf("0\n");
-return(0);
-}
 if (change >= 25)
 {
 change -= 25;
