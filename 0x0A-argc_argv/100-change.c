@@ -16,24 +16,15 @@
 
 int main(int argc, char *argv[])
 {
-
-int change;
-int counter;
-
+int change, counter = 0;
 if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
-
 change = atoi(argv[1]);
-
 if (change < 0)
-{
 printf("0\n");
-}
-
-counter = 0;
 while (change > 0)
 {
 counter++;
@@ -63,7 +54,6 @@ if (change == 1)
 change -= 1;
 }
 }
-
 printf("%d\n", counter);
 return (0);
 }
