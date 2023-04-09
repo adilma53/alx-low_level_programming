@@ -1,6 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+* count_change - finding how many change coins recursively
+*
+* @change: change needed
+* @counter: dominations counnter
+*
+* Return: counter
+*
+*/
+int count_change(int change, int counter)
+{
+
+if (change <= 0)
+return (counter);
+
+
+if (change >= 25)
+return (count_change(change - 25, counter + 1));
+
+else if (change >= 10)
+return (count_change(change - 10, counter + 1));
+
+else if (change >= 5)
+return (count_change(change - 5, counter + 1));
+
+else if (change >= 2)
+return (count_change(change - 2, counter + 1));
+
+else if (change == 1)
+return (count_change(change - 1, counter + 1));
+
+}
+
 /** By -{adilma53}- */
 
 /**
@@ -14,46 +47,26 @@
 *
 */
 
-int main(int argc, char *argv[])
+
+
+int main(int argc, char *argv[]) 
 {
-int change, counter = 0;
-if (argc != 2)
+
+if (argc < 2) 
 {
 printf("Error\n");
 return (1);
 }
-change = atoi(argv[1]);
+
 if (argc < 0)
 printf("0\n");
-while (change > 0)
-{
-counter++;
 
-if (change >= 25)
-{
-change -= 25;
-continue;
-}
-if (change < 25 && change >= 10)
-{
-change -= 10;
-continue;
-}
-if (change < 10 && change >= 5)
-{
-change -= 5;
-continue;
-}
-if (change < 5 && change >= 2)
-{
-change -= 2;
-continue;
-}
-if (change == 1)
-{
-change -= 1;
-}
-}
-printf("%d\n", counter);
+int change = atoi(argv[1]);
+int counter = 0;
+int result = count_change(change, counter);
+
+printf("%d\n", result);
+
+
 return (0);
 }
