@@ -15,10 +15,11 @@
 
 char **strtow(char *str)
 {
-    if (str == NULL || *str == '\0')
-        return (NULL);
     int i, j, wrdcount = 0, chartotal = 0, k = 0;
     char **matrix;
+
+    if (str == NULL || *str == '\0')
+        return (NULL);
 
     for (i = 0; str[i] != '\0'; i++)
     {
