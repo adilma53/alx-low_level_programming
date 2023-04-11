@@ -19,6 +19,7 @@ char *str_concat(char *s1, char *s2)
 {
 
 	int i = 0, j = 0, k, size;
+	char *newstr;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -37,7 +38,7 @@ char *str_concat(char *s1, char *s2)
 
 	size = i + j;
 
-	char *newstr = malloc((1 + size) * sizeof(char));
+	newstr = malloc((1 + size) * sizeof(char));
 
 	if (newstr == NULL)
 		return (NULL);
