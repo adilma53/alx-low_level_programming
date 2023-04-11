@@ -40,12 +40,12 @@ char *argstostr(int ac, char **av)
 	if (newstr == NULL)
 		return (NULL);
 
-	for (int i = 0; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		if (n > 0)
 			n++;
 
-		for (int j = 0; av[i][j] != '\0'; j++)
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
 			newstr[n] = av[i][j];
 			n++;
