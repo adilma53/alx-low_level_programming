@@ -29,14 +29,14 @@ char **strtow(char *str)
     matrix = malloc((wrdcount + 1) * sizeof(char *));
     if (matrix == NULL)
         return (NULL);
-// PUTTING EVERY STRING IN ITS ARRAY TERMINATED WITH '\0'
+    /* PUTTING EVERY STRING IN ITS ARRAY TERMINATED WITH '\0' */
     for (i = 0; i < wrdcount; i++)
     {
         matrix[i] = malloc(chartotal * sizeof(char));
         if (matrix[i] == NULL)
         {
-// Free allocated memory if error occurs
-            for (int j = 0; j < i; j++)
+            /* Free allocated memory if error occurs */
+            for (j = 0; j < i; j++)
             {
                 free(matrix[j]);
             }
