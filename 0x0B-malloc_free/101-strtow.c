@@ -30,6 +30,7 @@ char **strtow(char *str)
 	{
 		while (str[k] == ' ')
 			k++;
+		wordlength = 0;
 		for (l = k; str[l] != ' '; l++)
 			wordlength++;
 		matrix[i] = malloc((wordlength + 1) * sizeof(char));
