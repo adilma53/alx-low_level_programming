@@ -20,7 +20,8 @@ char *argstostr(int ac, char **av)
 {
 	int i, j, size, n;
 	char *newstr;
-
+	size = 0;
+	
 	n = 0;
 
 	if (ac == 0)
