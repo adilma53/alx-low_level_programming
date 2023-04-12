@@ -12,7 +12,7 @@
 
 char *argstostr(int ac, char **av)
 {
-	int i, j, length = 0, n = 0;
+	int i, j, length = 0, k = 0;
 	char *newstr;
 
 	if (ac == 0)
@@ -37,13 +37,15 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
-			newstr[n++] = av[i][j];
+		{
+			newstr[k] = av[i][j];
+			k++;
+		}
 
-		newstr[n++] = '\n';
+		newstr[k++] = '\n';
 	}
 
-	newstr[n] = '\0';
+	newstr[k] = '\0';
 
 	return (newstr);
 }
-
