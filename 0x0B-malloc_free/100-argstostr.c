@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 	int i, j, size, n;
 	char *newstr;
 	size = 0;
-	
+
 	n = 0;
 
 	if (ac == 0)
@@ -53,9 +53,10 @@ char *argstostr(int ac, char **av)
 			n++;
 		}
 		newstr[n] = '\n';
+		/* increment n after adding newline character */
+		n++;
 	}
 	newstr[n++] = '\0';
 
 	return (newstr);
 }
-
