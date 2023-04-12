@@ -33,7 +33,7 @@ char **strtow(char *str)
 			wordcount++;
 	}
 
-	matrix[i] = malloc((wordcount + 1 + sizeof(char)) * sizeof(char));
+	matrix[i] = malloc((wordcount + 1 ) * sizeof(char));
 
 	if (matrix == NULL)
 		return (NULL);
