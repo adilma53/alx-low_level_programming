@@ -2,61 +2,48 @@
 #include <stdlib.h>
 #include "main.h"
 
-/* by adilma53 */
-
 /**
-* argstostr - this function concatenates all arguments
-*  of your program and put \n new line to the end of each char.
-*
-* @ac: number of strings in your input
-* @av: vector of strings
-*
-* Return: the concatenated new string newstr
-*/
-
-
+ * argstostr - concatenates all arguments of a program
+ * @ac: number of arguments
+ * @av: array of arguments
+ *
+ * Return: pointer to new string, or NULL if it fails
+ */
 
 char *argstostr(int ac, char **av)
 {
-	int i, j, size, n;
+	int i, j, length = 0, n = 0;
 	char *newstr;
-	size = 0;
-
-	n = 0;
 
 	if (ac == 0)
 		return (NULL);
 	if (av == NULL)
 		return (NULL);
 
+
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-		{
-			size++;
-		}
-		size++;
+		for (j = 0; av[i][j]; j++)
+			length++;
+		length++;
 	}
 
-	newstr = malloc(size * sizeof(char));
+
+	newstr = malloc(sizeof(char) * (length + 1));
 	if (newstr == NULL)
 		return (NULL);
 
+
 	for (i = 0; i < ac; i++)
 	{
-		if (n > 0)
-			n++;
-
 		for (j = 0; av[i][j] != '\0'; j++)
-		{
-			newstr[n] = av[i][j];
-			n++;
-		}
-		newstr[n] = '\n';
-		/* increment n after adding newline character */
-		n++;
+			newstr[n++] = av[i][j];
+
+		newstr[n++] = '\n';
 	}
-	newstr[n++] = '\0';
+
+	newstr[n] = '\0';
 
 	return (newstr);
 }
+
