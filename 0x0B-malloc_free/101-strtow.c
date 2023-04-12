@@ -16,7 +16,7 @@ char **strtow(char *str)
 	int i, j, wordcount = 0, k = 0, wordlength = 0, l;
 	char **matrix;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || str == '')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
