@@ -13,7 +13,7 @@
 
 char **strtow(char *str)
 {
-	int i, j, wrdcount = 0, chartotal = 0, k = 0, wordlen = 0;
+	int i, j, wordcount = 0, k = 0, wordlength = 0, l;
 	char **matrix;
 
 	if (str == NULL || *str == '\0')
@@ -21,19 +21,18 @@ char **strtow(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if ((i == 0 || str[i - 1] == ' ') && str[i] != ' ')
-			wrdcount++;
-		chartotal++;
+			wordcount++;
 	}
-	matrix = malloc((wrdcount + 1) * sizeof(char *));
+	matrix = malloc((wordcount + 1) * sizeof(char *));
 	if (matrix == NULL)
 		return (NULL);
-	for (i = 0; i < wrdcount; i++)
+	for (i = 0; i < wordcount; i++)
 	{
 		while (str[k] == ' ')
 			k++;
-		while (str[k + wordlen] != ' ' && str[k + wordlen] != '\0')
-			wordlen++;
-		matrix[i] = malloc((wordlen + 1) * sizeof(char));
+		for (l = k; str[l] != ' '; l++)
+			wordlength++;
+		matrix[i] = malloc((wordlength + 1) * sizeof(char));
 		if (matrix[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
@@ -41,13 +40,14 @@ char **strtow(char *str)
 			free(matrix);
 			return (NULL);
 		}
-		for (j = 0; j < wordlen; j++)
+		for (j = 0; j < wordlength; j++)
 		{
 			matrix[i][j] = str[k];
 			k++;
 		}
 		matrix[i][j] = '\0';
 	}
-	matrix[wrdcount] = NULL;
+	matrix[wordcount] = NULL;
 	return (matrix);
 }
+
