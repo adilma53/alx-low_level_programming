@@ -3,20 +3,26 @@
 #include "main.h"
 
 /**
-* strtow - this function takes a string and converts it
-*   into a 2d array of strings
-*
-* @str: string to convert
-*
-* Return: the 2d array
-*/
-
+ * strtow - this function takes a string and converts it
+ * into a 2d array of strings
+ *
+ * @str: string to convert
+ *
+ * Return: the 2d array
+ */
 char **strtow(char *str)
 {
 	int i, j, wordcount = 0, k = 0, wordlength = 0, l;
 	char **matrix;
 
 	if (str == NULL || *str == '\0')
+		return (NULL);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ')
+			break;
+	}
+	if (str[i] == '\0')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
