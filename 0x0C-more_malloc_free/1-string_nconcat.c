@@ -13,6 +13,17 @@
 *
 */
 
+/**
+* string_nconcat - this function concatenates s1 and s2.
+* passed to the program.
+*
+* @s1: input
+* @s2: input
+* @n: input
+*
+* Return: newstring
+*
+*/
 
 unsigned int string_length(char *str)
 {
@@ -27,20 +38,8 @@ unsigned int string_length(char *str)
 	return (length);
 }
 
-/** By -{adilma53}- */
 
-/**
-* string_nconcat - this function concatenates s1 and s2.
-* passed to the program.
-*
-* @s1: input
-* @s2: input
-* @n: input
-*
-*
-* Return: newstring
-*
-*/
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *newstring;
@@ -67,4 +66,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	return (newstring);
 }
-
