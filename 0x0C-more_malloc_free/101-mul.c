@@ -42,11 +42,7 @@ int is_argv_digits(int argc, char **argv)
  */
 int main(int argc, char *argv[])
 {
-
 	int arv1 = 0, arv2 = 0, mul = 0;
-
-	arv1 = atoi(argv[1]);
-	arv2 = atoi(argv[2]);
 
 	if (argc != 3)
 	{
@@ -56,6 +52,9 @@ int main(int argc, char *argv[])
 
 	if (is_argv_digits(argc, argv) != 0)
 		return (98);
+
+	arv1 = atoi(argv[1]);
+	arv2 = atoi(argv[2]);
 
 	mul = arv1 * arv2;
 
