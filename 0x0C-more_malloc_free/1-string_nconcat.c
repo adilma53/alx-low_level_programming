@@ -5,15 +5,6 @@
 /** By -{adilma53}- */
 
 /**
-* string_length - calculate string length
-*
-* @str: input
-*
-* Return: length
-*
-*/
-
-/**
 * string_nconcat - this function concatenates s1 and s2.
 * passed to the program.
 *
@@ -24,14 +15,6 @@
 * Return: newstring
 *
 */
-
-unsigned int string_length(char *str)
-{
-	int i = 0;
-
-	return (length);
-}
-
 
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
