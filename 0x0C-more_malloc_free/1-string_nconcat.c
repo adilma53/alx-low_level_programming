@@ -16,15 +16,15 @@
 
 unsigned int string_length(char *str)
 {
-    int i = 0;
-    unsigned int length = 0;
+	int i = 0;
+	unsigned int length = 0;
 
-    while (str[i])
-    {
-        length++;
-        i++;
-    }
-    return (length);
+	while (str[i])
+	{
+		length++;
+		i++;
+	}
+	return (length);
 }
 
 /** By -{adilma53}- */
@@ -43,36 +43,28 @@ unsigned int string_length(char *str)
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-    char *newstring;
-    unsigned int i, j;
+	char *newstring;
+	unsigned int i, j;
+	unsigned int s1_len = string_length(s1);
 
-    if (s1 == NULL)
-        s1 = "";
-    if (s2 == NULL)
-        s2 = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-
-    unsigned int s1_len = string_length(s1);
-
-
-    newstring = malloc((s1_len + n + 1) * sizeof(char));
-    if (newstring == NULL)
-        return (NULL);
+	newstring = malloc((s1_len + n + 1) * sizeof(char));
+	if (newstring == NULL)
+		return (NULL);
 
 
-    for (i = 0; i < s1_len; i++)
-    {
-        newstring[i] = s1[i];
+	for (i = 0; i < s1_len; i++)
+		newstring[i] = s1[i];
 
-        if (i == s1_len - 1)
-        {
-            for (j = 0; j < n && s2[j] != '\n' ; j++)
-                newstring[i + j] = s2[j];
-        }
-    }
+	for (j = 0; j < n && s2[j] != '\n' ; j++)
+		newstring[i + j] = s2[j];
 
-    newstring[i + j] = '\0';
+	newstring[i + j] = '\0';
 
-    return (newstring);
+	return (newstring);
 }
 
