@@ -20,7 +20,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *my_str;
-	unsigned int i, j;
+	unsigned int i = 0, j;
 	unsigned int length = 0;
 
 	if (s1 == NULL)
@@ -49,5 +49,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	return (my_str);
 }
-
-
