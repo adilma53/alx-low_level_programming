@@ -5,38 +5,48 @@
 /* by adilma53 */
 
 /**
- * array_range - this function creates an array of integers
- * and populate it from min to max.
+ * _realloc - this function that reallocates a memory block from old
+ * pointer to a new pointer (it only locate less or equal
+ *                            memory of the old size)
  *
- * @min: input
- * @max: input
+ * @ptr: original pointer
+ * @old_size: original size
+ * @new_size: new size
  *
- * Return: my_arr
+ * Return: my_ptr
  */
 
-int *array_range(int min, int max)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int *my_arr;
-	int i;
-	int length = (max - min) + 1;
+	void *my_ptr;
+	unsigned int i;
 
-	if (min > max)
-		return (NULL);
+	if (new_size == old_size)
+		return (ptr);
 
+	if (ptr == NULL)
+		return (malloc(new_size));
 
-	my_arr = malloc(length * sizeof(int));
-	if (my_arr == NULL)
-		return (NULL);
-
-
-	for (i = 0; i < length; i++)
+	if (new_size == 0 && ptr != NULL)
 	{
-		if (min <= max)
-		{
-			my_arr[i] = min;
-			min++;
-		}
+		free(ptr);
+		return (NULL);
 	}
 
-	return (my_arr);
+
+	my_ptr = malloc(new_size);
+	if (my_ptr == NULL)
+		return (NULL);
+
+
+	for (i = 0; i < old_size; i++)
+	{
+		if (i >= new_size)
+			break;
+
+		((char *) my_ptr)[i] = ((char *) ptr)[i];
+	}
+
+	free(ptr);
+	return (my_ptr);
 }
