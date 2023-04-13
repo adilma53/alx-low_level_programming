@@ -4,8 +4,6 @@
 
 /* by adilma53 */
 
-
-
 /**
  * is_argv_digits - check if char is digit;
  *
@@ -44,7 +42,7 @@ int is_argv_digits(int argc, char **argv)
  */
 int main(int argc, char *argv[])
 {
-	int i, j;
+
 	int arv1 = 0, arv2 = 0, mul = 0;
 
 	arv1 = atoi(argv[1]);
