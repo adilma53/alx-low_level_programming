@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	arv1 = strtoul(argv[1]);
-	arv2 = strtoul(argv[2]);
+	arv1 = atol(argv[1]);
+	arv2 = atol(argv[2]);
 
 	multi = arv1 * arv2;
 
