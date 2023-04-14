@@ -22,7 +22,8 @@ int is_argv_digits(int argc, char **argv)
 		{
 			if (argv[i][j] < 48 || argv[i][j] > 57)
 			{
-				return (98);
+				printf("Error\n");
+				exit(98);
 			}
 		}
 	}
@@ -49,12 +50,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (is_argv_digits(argc, argv) != 0)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
+	is_argv_digits(argc, argv);
 
 
 	multi = atol(argv[2]) * atol(argv[1]);
