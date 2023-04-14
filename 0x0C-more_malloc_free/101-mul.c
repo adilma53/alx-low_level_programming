@@ -18,7 +18,7 @@ int is_argv_digits(int argc, char **argv)
 
 	for (i = 1; i < argc; i++)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		for (j = 1; argv[i][j] != '\0'; j++)
 		{
 			if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
@@ -59,8 +59,7 @@ int main(int argc, char *argv[])
 
 	multi = atol(argv[2]) * atol(argv[1]);
 
-	printf("%lu", multi);
-	printf("\n");
+	printf("%lu\n", multi);
 
 	return (0);
 }
