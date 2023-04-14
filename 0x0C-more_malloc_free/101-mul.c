@@ -20,10 +20,10 @@ int is_argv_digits(int argc, char **argv)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (argv[i][j] < '0' || argv[i][j] > '9')
+			if (!(argv[i][j] < '0' || argv[i][j] > '9'))
 			{
 				printf("Error\n");
-				return (98);
+				exit(98);
 			}
 		}
 	}
@@ -45,14 +45,13 @@ int main(int argc, char *argv[])
 {
 	int arv1 = 0, arv2 = 0, mul = 0;
 
-	if (argc < 3)
+	if (argc != 3)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
-	if (is_argv_digits(argc, argv) != 0)
-		return (98);
+	is_argv_digits(argc, argv);
 
 	arv1 = atoi(argv[1]);
 	arv2 = atoi(argv[2]);
