@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
+
 
 /* by adilma53 */
 
@@ -40,11 +40,12 @@ int is_argv_digits(int argc, char **argv)
  *
  * Return: 0
  */
+
 int main(int argc, char *argv[])
 {
 	int arv1 = 0, arv2 = 0, mul = 0;
 
-	if (argc != 3)
+	if (argc < 3)
 	{
 		printf("Error\n");
 		return (98);
@@ -58,8 +59,7 @@ int main(int argc, char *argv[])
 
 	mul = arv1 * arv2;
 
-	printf("%d", mul);
-	printf("\n");
+	printf("%d\n", mul);
 
 	return (0);
 }
