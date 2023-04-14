@@ -4,31 +4,7 @@
 
 /* by adilma53 */
 
-/**
- * is_argv_digits - check if char is digit;
- *
- * @argv: input
- * @argc: input
- *
- * Return: 0 if succeed / 98 if fail
- */
-int is_argv_digits(int argc, char **argv)
-{
-	int i, j;
 
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (!(argv[i][j] < '0' || argv[i][j] > '9'))
-			{
-				printf("Error\n");
-				exit(98);
-			}
-		}
-	}
-	return (0);
-}
 
 
 /**
@@ -51,7 +27,17 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	is_argv_digits(argc, argv);
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				exit(98);
+			}
+		}
+	}
 
 	arv1 = atoi(argv[1]);
 	arv2 = atoi(argv[2]);
