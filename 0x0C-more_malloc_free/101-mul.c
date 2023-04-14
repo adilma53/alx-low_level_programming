@@ -41,7 +41,7 @@ int is_argv_digits(int argc, char **argv)
  */
 int main(int argc, char *argv[])
 {
-	unsigned long arv1 = 0, arv2 = 0, multi = 0;
+	unsigned long multi;
 
 	if (argc != 3)
 	{
@@ -55,10 +55,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	arv1 = atol(argv[1]);
-	arv2 = atol(argv[2]);
 
-	multi = arv1 * arv2;
+
+	multi = atol(argv[2]) * atol(argv[1]);
 
 	printf("%lu", multi);
 	printf("\n");
