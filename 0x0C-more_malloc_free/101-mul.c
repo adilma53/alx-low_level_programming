@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 
 /* by adilma53 */
 
 /**
- * is_argv_digits - check if char is digit
+ * is_argv_digits - check if char is digit;
  *
  * @argv: input
  * @argc: input
@@ -33,7 +34,7 @@ int is_argv_digits(int argc, char **argv)
 
 /**
  * main - this programm program prints the multiplication
- *  of argv[1] x argv[2]
+ *	of argv[1] x argv[2]
  *
  * @argc: original pointer
  * @argv: original size
@@ -52,7 +53,8 @@ int main(int argc, char *argv[])
 
 	is_argv_digits(argc, argv);
 
-	multi = atol(argv[1]) * atol(argv[2]);
+
+	multi = atol(argv[2]) * atol(argv[1]);
 
 	printf("%lu\n", multi);
 
