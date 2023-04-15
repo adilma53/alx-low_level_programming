@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include "main.h"
 
 /* by adilma53 */
@@ -28,6 +27,7 @@ int is_argv_digits(int argc, char **argv)
 			}
 		}
 	}
+
 	return (0);
 }
 
