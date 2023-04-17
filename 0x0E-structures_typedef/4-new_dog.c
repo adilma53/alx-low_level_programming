@@ -4,6 +4,47 @@
 #include "dog.h"
 
 /**
+* _strcpy -  that copies the string to another distination
+* @dest: distination
+* @src: source
+* Return: destination
+*/
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+
+	dest[i] = '\0';
+
+	return (dest);
+}
+
+
+
+/**
+*_strlen - function that returns length of string
+*@s : input
+*Return: length of string
+*/
+int _strlen(char *s)
+{
+	int length = 0;
+
+	while (*s != '\0')
+	{
+		length++;
+		s++;
+	}
+
+	return (length);
+}
+
+/**
  * new_dog - function that creates a new struct
  *
  * @name: doge name
@@ -25,14 +66,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 
-	name_clone = malloc(strlen(name) + 1);
+	name_clone = malloc(_strlen(name) + 1);
 	if (name_clone == NULL)
 	{
 		free(my_doge);
 		return (NULL);
 	}
 
-	owner_clone = malloc(strlen(owner) + 1);
+	owner_clone = malloc(_strlen(owner) + 1);
 	if (owner_clone == NULL)
 	{
 		free(name_clone);
@@ -41,8 +82,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 
-	strcpy(name_clone, name);
-	strcpy(owner_clone, owner);
+	_strcpy(name_clone, name);
+	_strcpy(owner_clone, owner);
 
 
 	my_doge->name = name_clone;
