@@ -31,7 +31,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(my_doge);
 		return (NULL);
 	}
-	strcpy(name_clone, name);
 
 	owner_clone = malloc(strlen(owner) + 1);
 	if (owner_clone == NULL)
@@ -40,6 +39,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(my_doge);
 		return (NULL);
 	}
+
+
+	strcpy(name_clone, name);
 	strcpy(owner_clone, owner);
 
 
