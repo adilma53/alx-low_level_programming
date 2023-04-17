@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 
 /**
@@ -15,6 +16,7 @@ void print_dog(struct dog *d)
 		return;
 
 	char *name;
+
 	if (d->name == NULL)
 		name = "(nil)";
 	else
@@ -23,6 +25,7 @@ void print_dog(struct dog *d)
 	float age = d->age;
 
 	char *owner;
+
 	if (d->owner == NULL)
 		owner = "(nil)";
 	else
