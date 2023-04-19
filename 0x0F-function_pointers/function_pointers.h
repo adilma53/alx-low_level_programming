@@ -2,7 +2,6 @@
 #define FUNCTION_POINTERS_H
 
 /* libraries */
-#include <stddef.h>
 #include <stdlib.h>
 
 /* prototypes */
