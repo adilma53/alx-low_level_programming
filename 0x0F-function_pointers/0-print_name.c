@@ -5,12 +5,12 @@
 /* by adilma53 */
 
 /**
-* print_name - function that prints a name
+*print_name - function that prints a name
 *
-* @name: input
-* @f: input
+*@name: input
+*@f: input
 *
-* Return: nothin
+*Return: nothin
 */
 
 void print_name(char *name, void (*f)(char *))
