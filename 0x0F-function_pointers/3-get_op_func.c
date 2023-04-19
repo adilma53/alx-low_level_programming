@@ -1,4 +1,5 @@
 #include "3-calc.h"
+#include <stddef.h>
 
 /**
  * get_op_func - selects the correct operation
@@ -8,6 +9,7 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
+int i;
 	static op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -17,7 +19,7 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	for (int i = 0; ops[i].op != NULL; i++)
+	for (i = 0; ops[i].op != NULL; i++)
 	{
 		if (ops[i].op[0] == s[0])
 		{
