@@ -1,16 +1,14 @@
-#ifndef function_pointers
-#define function_pointers
-
+#ifndef _FUNC_POINTERS_H
+#define _FUNC_POINTERS_H
 
 /* libraries */
-#include <stdio.h>
-#include <stdlib.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 /* prototypes */
+int _putchar(char c);
 void print_name(char *name, void (*f)(char *));
 void array_iterator(int *array, size_t size, void (*action)(int));
 int int_index(int *array, int size, int (*cmp)(int));
-
 
 #endif
