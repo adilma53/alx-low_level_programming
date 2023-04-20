@@ -2,15 +2,18 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/* by adilma53 */
 /**
- * print_numbers - Entry Point
- * @separator: comma space
- * @n: elements to be printed
- * Return: void
- */
+* print_numbers - a variadic function that prints all its arguments
+*
+* @n: number of arguments
+* @separator: separator charachter
+*
+* Return: nothing
+*/
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list list;
+	va_list arg_list;
 	unsigned int i;
 
 	if (n == 0)
@@ -19,18 +22,20 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		return;
 	}
 
-	va_start(list, n);
+	va_start(arg_list, n);
 
 	if (separator == NULL)
 		separator = "";
 
 	for (i = 0; i < n; i++)
 	{
-		printf("%d", va_arg(list, int));
+		printf("%d", va_arg(arg_list, int));
+
 		if (i < n - 1)
 			printf("%s", separator);
 	}
 
 	printf("\n");
-	va_end(list);
+	va_end(arg_list);
 }
+
