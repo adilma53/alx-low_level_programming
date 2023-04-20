@@ -2,18 +2,18 @@
 #define CALCULATIONS_H
 
 /**
- * struct op - Struct op
+ * struct op - Struct
  *
- * @op: The operator
- * @f: The function associated
+ * @op: operator
+ * @f: function
  */
 typedef struct op
 {
-	char *op;
-	int (*f)(int a, int b);
+    char *op;
+    int (*f)(int a, int b);
 } op_t;
 
-/* MY FUNCTION */
+/* MY PROTOTYPES */
 int op_add(int a, int b);
 int op_sub(int a, int b);
 int op_mul(int a, int b);
@@ -22,3 +22,4 @@ int op_mod(int a, int b);
 int (*get_op_func(char *s))(int, int);
 
 #endif
+
