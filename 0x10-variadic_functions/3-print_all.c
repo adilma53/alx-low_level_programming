@@ -1,8 +1,10 @@
+#include <stdio.h>
+#include <stdarg.h>
 #include "variadic_functions.h"
 
 /**
 * print_all - a variadic function that prints all its arguments
-* based on what their specifier
+* based on what thier specifier
 *
 * @format: format string
 *
@@ -15,11 +17,9 @@ void print_all(const char * const format, ...)
 	va_list my_args;
 	char *string;
 
+	va_start(my_args, format);
 	if (format == NULL)
 		return;
-
-	va_start(my_args, format);
-
 	while (format[i])
 	{
 		switch (format[i])
@@ -28,26 +28,28 @@ void print_all(const char * const format, ...)
 			string = va_arg(my_args, char*);
 			if (string == NULL)
 				printf("(nil)");
-			else
-				printf("%s", string);
+			printf("%s", string);
 			break;
+
 		case 'f':
 			printf("%f", va_arg(my_args, double));
 			break;
+
 		case 'c':
 			printf("%c", va_arg(my_args, int));
 			break;
+
 		case 'i':
 			printf("%d", va_arg(my_args, int));
 			break;
-		default:
-			break;
-		}
 
-		if (format[i + 1] != '\0' && (format[i] == 's' || format[i] == 'f' ||
-						format[i] == 'c' || format[i] == 'i'))
-			printf(", ");
+		default:
+			i++;
+			continue;
+		}
 		i++;
+		if (format[i] != '\0')
+			printf(", ");
 	}
 	printf("\n");
 	va_end(my_args);
