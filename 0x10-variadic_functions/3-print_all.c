@@ -5,7 +5,7 @@
  * print_all - prints anything
  * @format: a list of types of arguments passed to the function
  *
- * Return: void
+ * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
@@ -27,7 +27,7 @@ void print_all(const char * const format, ...)
 			printf("%s%d", separator, va_arg(args, int));
 			break;
 		case 'f':
-			printf("%s%f", separator, va_arg(args, double));
+			printf("%s%f", (float)separator, va_arg(args, double));
 			break;
 		case 's':
 			str = va_arg(args, char *);
