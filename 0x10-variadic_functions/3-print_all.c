@@ -18,39 +18,38 @@ void print_all(const char * const format, ...)
 	char *string;
 	const char *seperator = "";
 
-	va_start(my_args, format);
-
-	while (format[i] && format != NULL)
+	if (format != NULL)
 	{
-		switch (format[i])
+		va_start(my_args, format);
+
+		while (format[i])
 		{
-		case 's':
-			string = va_arg(my_args, char*);
-			if (string == NULL)
-				printf("%s(nil)", seperator);
-			printf("%s%s", seperator, string);
-			break;
-
-		case 'f':
-			printf("%s%f", seperator, va_arg(my_args, double));
-			break;
-
-		case 'c':
-			printf("%s%c", seperator, va_arg(my_args, int));
-			break;
-
-		case 'i':
-			printf("%s%d", seperator, va_arg(my_args, int));
-			break;
-
-		default:
+			switch (format[i])
+			{
+			case 's':
+				string = va_arg(my_args, char *);
+				if (string == NULL)
+					printf("%s(nil)", seperator);
+				else
+					printf("%s%s", seperator, string);
+				break;
+			case 'i':
+				printf("%s%d", seperator, va_arg(my_args, int));
+				break;
+			case 'f':
+				printf("%s%f", seperator, va_arg(my_args, double));
+				break;
+			case 'c':
+				printf("%s%c", seperator, va_arg(my_args, int));
+				break;
+			default:
+				i++;
+				continue;
+			}
+			seperator = ", ";
 			i++;
-			continue;
 		}
-		seperator = ", ";
-		i++;
+		printf("\n");
+		va_end(my_args);
 	}
-
-	printf("\n");
-	va_end(my_args);
 }
