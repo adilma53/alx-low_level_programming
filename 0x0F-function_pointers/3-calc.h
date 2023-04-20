@@ -1,6 +1,9 @@
 #ifndef CALCULATIONS_H
 #define CALCULATIONS_H
 
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
  * struct op - Struct
  *
