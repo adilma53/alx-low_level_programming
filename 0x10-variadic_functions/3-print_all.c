@@ -3,21 +3,6 @@
 #include "variadic_functions.h"
 
 /**
-* _seperator - trick -_0
-*
-* @format: format string
-* @i: _________
-* Return: nothing
-*/
-
-void _seperator(const char * const format, unsigned int i)
-{
-	if (format[i] != '\0')
-		printf(", ");
-}
-
-
-/**
 * print_all - a variadic function that prints all its arguments
 * based on what thier specifier
 *
@@ -33,9 +18,8 @@ void print_all(const char * const format, ...)
 	char *string;
 
 	va_start(my_args, format);
-	if (format == NULL)
-		return;
-	while (format[i])
+
+	while (format[i] && format != NULL)
 	{
 		switch (format[i])
 		{
@@ -63,7 +47,8 @@ void print_all(const char * const format, ...)
 			continue;
 		}
 		i++;
-		_seperator(format, i);
+		if (format[i] != '\0')
+			printf(", ");
 	}
 	printf("\n");
 	va_end(my_args);
