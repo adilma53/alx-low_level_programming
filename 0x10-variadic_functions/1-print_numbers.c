@@ -3,42 +3,34 @@
 #include <stdio.h>
 
 /**
-* print_numbers - a variadic function that prints all its arguments
-*
-* @n: number of arguments
-* @separator: separator charachter
-*
-* Return: nothing
-*/
-
+ * print_numbers - Entry Point
+ * @separator: comma space
+ * @n: elements to be printed
+ * Return: void
+ */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	if (n > 0)
+	va_list list;
+	unsigned int i;
+
+	if (n == 0)
 	{
-		unsigned int i;
-		va_list my_arguments;
-		char *my_separator;
+		printf("\n");
+		return;
+	}
 
-		if (separator == NULL || separator[0] == 0)
-			my_separator = "";
-		else
-			my_separator = (char*) separator;
+	va_start(list, n);
 
-		va_start(my_arguments, n);
+	if (separator == NULL)
+		separator = "";
 
-		for (i = 0; i < n; i++)
-		{
-			int arg = va_arg(my_arguments, int);
-
-			printf("%d", arg);
-
-			if (i != n - 1)
-				printf("%s", my_separator);
-		}
-
-		va_end(my_arguments);
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", va_arg(list, int));
+		if (i < n - 1)
+			printf("%s", separator);
 	}
 
 	printf("\n");
+	va_end(list);
 }
-
