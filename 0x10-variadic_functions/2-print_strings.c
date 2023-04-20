@@ -5,7 +5,7 @@
 *  char arguments
 *
 * @n: number of arguments
-* @separator: separator charachter
+* @separator: separator character
 *
 * Return: nothing
 */
@@ -26,17 +26,18 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		for (i = 0; i < n; i++)
 		{
 			arg = va_arg(my_arguments, char*);
+
 			if (arg == NULL)
 				printf("(nil)");
 			else
 				printf("%s", arg);
 
-
 			if (separator != NULL && i != n - 1)
 				printf("%s", separator);
-
 		}
+
 		va_end(my_arguments);
-		printf("\n");
 	}
+
+	printf("\n");
 }
