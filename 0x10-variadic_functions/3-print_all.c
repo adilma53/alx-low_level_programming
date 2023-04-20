@@ -1,23 +1,25 @@
 #include "variadic_functions.h"
 
 /**
-* print_all - a variadic function that prints all its arguments
-* based on what thier specifier
-*
-* @format: format string
-*
-* Return: nothing
-*/
-
+ * print_all - a variadic function that prints all its arguments
+ * based on what their specifier
+ *
+ * @format: format string
+ *
+ * Return: nothing
+ */
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
 	va_list my_args;
 	char *string;
+	char *separator = ", ";
 
 	va_start(my_args, format);
+
 	if (format == NULL)
 		return;
+
 	while (format[i])
 	{
 		switch (format[i])
@@ -25,30 +27,26 @@ void print_all(const char * const format, ...)
 		case 's':
 			string = va_arg(my_args, char*);
 			if (string == NULL)
-				printf("(nil)");
-			printf("%s", string);
+				printf("%s(nil)", separator);
+			else
+				printf("%s%s", separator, string);
 			break;
-
 		case 'f':
-			printf("%f", va_arg(my_args, double));
+			printf("%s%f", separator, va_arg(my_args, double));
 			break;
-
 		case 'c':
-			printf("%c", va_arg(my_args, int));
+			printf("%s%c", separator, va_arg(my_args, int));
 			break;
-
 		case 'i':
-			printf("%d", va_arg(my_args, int));
+			printf("%s%d", separator, va_arg(my_args, int));
 			break;
-
 		default:
-			i++;
-			continue;
+			break;
 		}
+		separator = ", ";
 		i++;
-		if (format[i] != '\0')
-			printf(", ");
 	}
+
 	printf("\n");
 	va_end(my_args);
 }
