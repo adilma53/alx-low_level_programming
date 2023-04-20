@@ -22,7 +22,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (separator == NULL || separator[0] == 0)
 			my_separator = "";
 		else
-			my_separator = separator;
+			my_separator = (char*) separator;
 
 		va_start(my_arguments, n);
 
