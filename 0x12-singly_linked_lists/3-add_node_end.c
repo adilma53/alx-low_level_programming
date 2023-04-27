@@ -1,16 +1,17 @@
 #include "lists.h"
 
 /**
- * add_node_end - add node to end of linked list
+ * add_node - add node to beginning of linked list
  *
  * @head: head of original linked list
  * @str: string to add to the new nodes
  *
  * Return: the new node.
  */
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node(list_t **head, const char *str)
 {
 	list_t *added_node;
+	list_t *temporary_node;
 
 	if (!head || !str)
 		return (NULL);
@@ -20,15 +21,25 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 
 	added_node->str = strdup(str);
+	added_node->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = added_node;
+		return (added_node);
+	}
+
 	if (!(added_node->str))
 	{
 		free(added_node);
 		return (NULL);
 	}
 
-	added_node->len = strlen(str);
-	head->next = added_node;
-	added_node->next = NULL;
+	temporary_node = *head;
+	while (temporary_node->next)
+		temporary_node = temporary_node->next;
+
+	temporary_node->next = added_node;
 
 	return (added_node);
 }
