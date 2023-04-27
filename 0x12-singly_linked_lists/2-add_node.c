@@ -11,7 +11,7 @@
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *added_node;
-	list_t *temporary_node;
+
 	if (!head || !str)
 		return (NULL);
 
@@ -20,25 +20,15 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 
 	added_node->str = strdup(str);
-	new_node->next = NULL;
-
-	if (*head == NULL)
-	{
-		*head = new_node;
-		return (new_node);
-	}
-
 	if (!(added_node->str))
 	{
 		free(added_node);
 		return (NULL);
 	}
 
-	temporary_node = *head;
-	while (temporary_node->next)
-		temporary_node = temporary_node->next;
-
-	temporary_node->next = new_node;
+	added_node->len = strlen(str);
+	added_node->next = *head;
+	*head = added_node;
 
 	return (added_node);
 }
