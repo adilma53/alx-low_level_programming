@@ -1,22 +1,5 @@
 #include "lists.h"
 
-
-/**
- * _strlen - .....
- *
- * @s: .....
- *
- * Return: .....
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len])
-		len++;
-
-	return (len);
-}
 /**
  * add_node - add node to beginning of linked list
  *
@@ -43,7 +26,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	added_node->len = _strlen(str);
+	added_node->len = strlen(str);
 	added_node->next = *head;
 	*head = added_node;
 
