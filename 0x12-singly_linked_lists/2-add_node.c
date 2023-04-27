@@ -10,8 +10,7 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	size_t *added_node;
-
+	list_t *added_node;
 
 	if (!head || !str)
 		return (NULL);
@@ -20,7 +19,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (!added_node)
 		return (NULL);
 
-	added_node->str  = strdup(str);
+	added_node->str = strdup(str);
 	if (!(added_node->str))
 	{
 		free(added_node);
@@ -30,8 +29,6 @@ list_t *add_node(list_t **head, const char *str)
 	added_node->len = strlen(str);
 	added_node->next = *head;
 	*head = added_node;
-
-
 
 	return (added_node);
 }
