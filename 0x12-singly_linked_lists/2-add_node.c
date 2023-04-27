@@ -38,6 +38,7 @@ list_t *add_node(list_t **head, const char *str)
 	while (temporary_node->next)
 		temporary_node = temporary_node->next;
 
+	temporary_node->next = new_node;
 
 	return (added_node);
 }
