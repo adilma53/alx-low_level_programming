@@ -1,14 +1,14 @@
 #include "lists.h"
 
 /**
- * add_node - add node to beginning of linked list
+ * add_node_end - add node to end of linked list
  *
  * @head: head of original linked list
- * @str: string to add to the new nodes
+ * @str: string to add to the new node
  *
  * Return: the new node.
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *added_node;
 	list_t *temporary_node;
