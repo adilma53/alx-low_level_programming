@@ -10,36 +10,36 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *added_node;
-	list_t *temporary_node;
+    list_t *added_node;
+    list_t *temporary_node;
 
-	if (!head || !str)
-		return (NULL);
+    if (!head || !str)
+        return (NULL);
 
-	added_node = malloc(sizeof(list_t));
-	if (!added_node)
-		return (NULL);
+    added_node = malloc(sizeof(list_t));
+    if (!added_node)
+        return (NULL);
 
-	added_node->str = strdup(str);
-	added_node->next = NULL;
+    added_node->str = strdup(str);
+    added_node->next = NULL;
 
-	if (*head == NULL)
-	{
-		*head = added_node;
-		return (added_node);
-	}
+    if (*head == NULL)
+    {
+        *head = added_node;
+        return (added_node);
+    }
 
-	if (!(added_node->str))
-	{
-		free(added_node);
-		return (NULL);
-	}
+    if (!(added_node->str))
+    {
+        free(added_node);
+        return (NULL);
+    }
 
-	temporary_node = *head;
-	while (temporary_node->next)
-		temporary_node = temporary_node->next;
+    temporary_node = *head;
+    while (temporary_node->next)
+        temporary_node = temporary_node->next;
 
-	temporary_node->next = added_node;
+    temporary_node->next = added_node;
 
-	return (added_node);
+    return (added_node);
 }
