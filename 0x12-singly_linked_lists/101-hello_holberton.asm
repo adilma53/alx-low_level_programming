@@ -1,3 +1,7 @@
+section .data
+    message db "Hello, Holberton", 0
+    format db "%s\n", 0
+
 section .text
     global main
     extern printf
@@ -8,7 +12,3 @@ main:
     call printf
     add rsp, 16
     ret
-
-section .data
-    message db "Hello, Holberton", 0
-    format db "%s\n", 0
