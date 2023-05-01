@@ -29,7 +29,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
     added_node = malloc(sizeof(listint_t));
     if (!added_node)
+    {
+        free(added_node);
         return (NULL);
+    }
 
     added_node->n = n;
     added_node->next = before_node->next;
