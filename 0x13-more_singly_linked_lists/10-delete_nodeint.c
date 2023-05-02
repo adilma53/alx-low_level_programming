@@ -27,7 +27,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	while (i < index && current_node)
 	{
-		previous_node = head;
+		previous_node = current_node;
 		current_node = current_node->next;
 		i++;
 
