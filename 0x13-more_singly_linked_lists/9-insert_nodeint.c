@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - insert node in specific index
+ * insert_nodeint_at_index - insert node in specified index
  * @head: pointer to head of list
  * @idx: index
  * @n: node elements
@@ -36,12 +36,12 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		temporary = temporary->next;
 		i++;
-	}
 
-	if (!temporary)
-	{
-		free(added_node);
-		return (NULL);
+		if (!temporary)
+		{
+			free(added_node);
+			return (NULL);
+		}
 	}
 
 	added_node->next = temporary->next;
