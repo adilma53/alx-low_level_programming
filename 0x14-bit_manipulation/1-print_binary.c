@@ -14,10 +14,9 @@ int _putchar(char c)
 
 /**
  * print_binary - prints the binary representation of a number
- *
  * @n: the number to be printed in binary
  *
- * Return: nothing
+ * Return: void
  */
 void print_binary(unsigned long int n)
 {
@@ -28,6 +27,7 @@ void print_binary(unsigned long int n)
 		len++;
 
 	len--;
+
 	while (len >= 0)
 	{
 		if ((n >> len) & mask)
