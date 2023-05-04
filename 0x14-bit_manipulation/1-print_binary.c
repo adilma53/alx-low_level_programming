@@ -14,9 +14,10 @@ int _putchar(char c)
 
 /**
  * print_binary - prints the binary representation of a number
+ *
  * @n: the number to be printed in binary
  *
- * Return: void
+ * Return: nothing
  */
 void print_binary(unsigned long int n)
 {
