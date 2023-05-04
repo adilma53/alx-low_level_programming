@@ -18,22 +18,22 @@ int _putchar(char c)
  *
  * Return: void
  */
+
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1;
-	int len = 0;
+	int i;
 
-	while ((n >> len) > 0)
-		len++;
-
-	len--;
-
-	while (len >= 0)
+	for (i = 63; i >= 0; i--)
 	{
-		if ((n >> len) & mask)
-			_putchar('1');
+		if ((n >> i) & 1)
+		{
+			printf("1");
+		}
 		else
-			_putchar('0');
-		len--;
+		{
+			printf("0");
+		}
 	}
+
+	printf("\n");
 }
