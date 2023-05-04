@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * clear_bit - Sets the value of a bit to 0 specific index
  * @n: ...
