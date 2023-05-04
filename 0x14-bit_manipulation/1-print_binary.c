@@ -22,7 +22,7 @@ int _putchar(char c)
 void print_binary(unsigned long int n)
 {
 	unsigned long int mask = 1;
-	unsigned int len = 0;
+	int len = 0;
 
 	while ((n >> len) > 0)
 		len++;

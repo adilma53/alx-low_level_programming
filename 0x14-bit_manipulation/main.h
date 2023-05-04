@@ -5,6 +5,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+#include <unistd.h>
 
 /* my prototypes*/
 unsigned int binary_to_uint(const char *b);
