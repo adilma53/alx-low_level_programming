@@ -11,6 +11,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *current = *h;
 	listint_t *next;
 	size_t counter = 0;
+	*h = NULL;
 
 	while (current != NULL)
 	{
@@ -20,7 +21,6 @@ size_t free_listint_safe(listint_t **h)
 
 		if (next >= current)
 		{
-			*h = NULL;
 			break;
 		}
 		current = next;
