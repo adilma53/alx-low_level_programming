@@ -14,10 +14,10 @@ size_t free_listint_safe(listint_t **h)
 
 	while (current != NULL)
 	{
-
+		counter++;
 		next = current->next;
 		free(current);
-		counter++;
+
 		if (next >= current)
 		{
 			*h = NULL;
