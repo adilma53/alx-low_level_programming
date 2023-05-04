@@ -6,22 +6,22 @@
  *
  * Return: void
  */
-
 void print_binary(unsigned long int n)
 {
-	int i;
+	unsigned long int mask = 1;
+	int len = 0;
 
-	for (i = 63; i >= 0; i--)
+	while ((n >> len) > 0)
+		len++;
+
+	len--;
+
+	while (len >= 0)
 	{
-		if ((n >> i) & 1)
-		{
-			printf("1");
-		}
+		if ((n >> len) & mask)
+			putchar('1');
 		else
-		{
-			printf("0");
-		}
+			putchar('0');
+		len--;
 	}
-
-	printf("\n");
 }
