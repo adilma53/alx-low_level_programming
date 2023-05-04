@@ -15,7 +15,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int counter = 0;
 
 	/* count the number of set bits in the XOR result */
-	while (x != NULL)
+	while (x)
 	{
 		counter += x & 1;
 		x >>= 1;
