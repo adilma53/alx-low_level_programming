@@ -11,30 +11,30 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-    int file_descripto, len = 0, _written;
+	int file_descripto, len = 0, _written;
 
-    if (!filename)
-        return (-1);
+	if (!filename)
+		return (-1);
 
-    if (text_content)
-        while (text_content[len++] != '\0')
-            ;
+	if (text_content)
+		while (text_content[len++] != '\0')
+			;
 
-    file_descripto = open(filename, O_WRONLY | O_APPEND);
-    if (file_descripto == -1)
-        return (-1);
+	file_descripto = open(filename, O_WRONLY | O_APPEND);
+	if (file_descripto == -1)
+		return (-1);
 
-    if (text_content != NULL)
-        _written = write(file_descripto, text_content, len);
+	if (text_content != NULL)
+		_written = write(file_descripto, text_content, len);
 
-    if (_written == -1)
-    {
-        close(file_descripto);
-        return (-1);
-    }
-    else
-    {
-        close(file_descripto);
-        return (1);
-    }
+	if (_written == -1)
+	{
+		close(file_descripto);
+		return (-1);
+	}
+	else
+	{
+		close(file_descripto);
+		return (1);
+	}
 }
