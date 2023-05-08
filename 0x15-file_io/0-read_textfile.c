@@ -33,8 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(file_descriptor);
 		return (0);
 	}
-	else
-		_buffer[_read] = '\0';
+	_buffer[_read] = '\0';
 
 	_written = write(STDOUT_FILENO, _buffer, _read);
 	if (_written == -1 || _written != _read)
