@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * read_textfile - function that print letters from file to the stdout
+ *
+ * @filename: file to write from
+ * @letters: letters to write
+ *
+ * Return: letters writen
+ */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file_descriptor;
