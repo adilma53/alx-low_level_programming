@@ -1,5 +1,7 @@
 #include "main.h"
 
+/* by adilma53 */
+
 /**
  * read_textfile - function that print letters from file to the stdout
  *
