@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
+#include "main.h"
+
+/* by adilma53 */
 
 #define BUF_SIZE 1024
 
@@ -10,12 +8,12 @@ void copy_file(const char *file_from, const char *file_to);
 
 /**
  * main - Entry point. Copies a file from one path to another based on command
- * line arguments.
- * @argc: Argument count.
- * @argv: Argument vector.
- * Return: 0 on success, 97-100 on error.
+ * line arguments
  *
+ * @argc: Argument count
+ * @argv: Argument vector
  *
+ * Return: 0 on success, 97-100 on error
  */
 int main(int argc, char *argv[])
 {
@@ -30,12 +28,12 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- * copy_file - Copies a file from one path to another.
- * @file_from: Path of the file to copy from.
- * @file_to: Path of the file to copy to.
- * Return: Nothing.
+ * copy_file - Copies a file from one path to another
  *
+ * @file_from: Path of the file to copy from
+ * @file_to: Path of the file to copy to
  *
+ * Return: Nothing
  */
 void copy_file(const char *file_from, const char *file_to)
 {
