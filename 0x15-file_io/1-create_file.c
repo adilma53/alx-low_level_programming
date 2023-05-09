@@ -8,7 +8,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file_descriptor, _written, len = 0;
+	int file_descriptor, _written, length = 0;
 	mode_t mode = S_IRUSR | S_IWUSR;
 
 	if (!filename)
@@ -22,11 +22,11 @@ int create_file(const char *filename, char *text_content)
 	/* if text_content exists, write it to the file */
 	if (text_content)
 	{
-		while (text_content[len])
-			len++;
+		while (text_content[length])
+			length++;
 
-		_written = write(file_descriptor, text_content, len);
-		if (_written != len)
+		_written = write(file_descriptor, text_content, length);
+		if (_written != length)
 		{
 			close(file_descriptor);
 			return (-1);
