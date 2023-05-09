@@ -12,7 +12,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int file_descriptor, length = 0, _written;
-	mode_t mode = O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR;
+	mode_t mode = O_WRONLY | O_CREAT | O_TRUNC | S_IRUSR | S_IWUSR;
 
 	if (!filename)
 		return (-1);
@@ -34,9 +34,7 @@ int create_file(const char *filename, char *text_content)
 			return (-1);
 		}
 	}
-	else
-	{
-		close(file_descriptor);
-		return (1);
-	}
+
+	close(file_descriptor);
+	return (1);
 }
