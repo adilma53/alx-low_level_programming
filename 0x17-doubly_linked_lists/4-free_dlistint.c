@@ -16,8 +16,10 @@ dlistint_t *head_head;
 	while (head)
 	{
 		head_copy = head;
-		head->next = head_copy;
-		free(head)
+		head = head->next;
+
+		free(head_copy)
+
 
 	}
 
