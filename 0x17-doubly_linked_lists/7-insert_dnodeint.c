@@ -1,51 +1,45 @@
 #include "lists.h"
+
 /**
- * insert_dnodeint_at_index - add node at specific index
- * @h: head
- * @idx: index
- * @n: node data
- * Return: node added
+ * insert_dnodeint_at_index - Inserts a new node at a given position
+ * @h: Double pointer to the head of the doubly linked list
+ * @idx: Index where the new node should be inserted
+ * @n: Value to be assigned to the new node
+ *
+ * Return: Address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
+	dlistint_t *new_node, *current = *h;
 	unsigned int i = 0;
-	unsigned int j = 0;
-	dlistint_t *head_copy1 = *h;
-	dlistint_t *head_copy2 = *h;
-	dlistint_t *left_node;
-	dlistint_t *right_node;
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
 
-	if (new_node == NULL)
-		return (NULL);
-	new_node->n = n;
-	while (head_copy1)
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+
+	while (i < idx - 1)
 	{
-		head_copy1 = head_copy1->next;
+		if (current == NULL)
+			return (NULL);
+
+		current = current->next;
 		i++;
 	}
-	if (idx > i)
+
+	if (current == NULL)
 		return (NULL);
-	while (head_copy2)
-	{
-		head_copy2 = head_copy2->next;
-		j++;
-		if (j == idx - 1)
-		{
-			left_node = head_copy2;
-			/* step into target to get right node */
-			head_copy2 = head_copy2->next;
-			right_node = head_copy2->next;
-			/*connect left node to the new node*/
-			(left_node)->next = new_node;
-			/* connect new node to left node*/
-			(new_node)->prev = left_node;
-			/* connect new node to right node*/
-			(new_node)->next = right_node;
-			/* coneect right node to new node*/
-			(right_node)->prev = new_node;
-			return (new_node);
-		}
-	}
-	return (NULL);
+
+	if (current->next == NULL)
+		return (add_dnodeint_end(h, n));
+
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->n = n;
+	new_node->prev = current;
+	new_node->next = current->next;
+	current->next->prev = new_node;
+	current->next = new_node;
+
+	return (new_node);
 }
