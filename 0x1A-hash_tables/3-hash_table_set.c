@@ -11,15 +11,15 @@
 
 hash_node_t *create_node(const char *key, const char *value)
 {
-	hash_node_t *new_ndoe = malloc(sizeof(hash_node_t));
+	hash_node_t *new_node = malloc(sizeof(hash_node_t));
 
-	if (!new_ndoe)
+	if (!new_node)
 		return (NULL);
 
-	new_ndoe->key = strdup(key);
-	new_ndoe->value = strdup(value);
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
 
-	return (new_ndoe);
+	return (new_node);
 }
 /**
  * hash_table_set - add node at index of hash table
@@ -36,7 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node = NULL;
 	unsigned long int index;
 
-	if (!key || !key || strcmp(key, "") == 0 || *key == '\0' || !value)
+	if (!key || strcmp(key, "") == 0 || *key == '\0' || !value)
 	{
 		return (0);
 	}
