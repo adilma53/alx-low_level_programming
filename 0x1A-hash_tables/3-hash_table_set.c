@@ -1,77 +1,73 @@
 #include "hash_tables.h"
 
 /**
- * key_index - get index for buckets
+ * create_node - create node for table
  *
- * @key: the key to hash
- * @size: size of the hash table
+ * @key: key of the node
+ * @value: value of the node
  *
- * Return: index
+ * Return: new node
  */
-/*
-typedef struct hash_table_s
-{
-    unsigned long int size;
-    hash_node_t **array;
-} hash_table_t;
-+++++++++++++++++++++++++++++
-typedef struct hash_node_s
-{
-    char *key;
-    char *value;
-    struct hash_node_s *next;
-} hash_node_t;
 
-*/
 hash_node_t *create_node(const char *key, const char *value)
 {
-    hash_node_t *new_ndoe = malloc(sizeof(hash_node_t));
-    if (!new_ndoe)
-        return NULL;
+	hash_node_t *new_ndoe = malloc(sizeof(hash_node_t));
 
-    new_ndoe->key = strdup(key);
-    new_ndoe->value = strdup(value);
+	if (!new_ndoe)
+		return (NULL);
 
-    return (new_ndoe);
+	new_ndoe->key = strdup(key);
+	new_ndoe->value = strdup(value);
+
+	return (new_ndoe);
 }
-
+/**
+ * hash_table_set - add node at index of hash table
+ *
+ * @ht: hash table
+ * @key: the key to hash
+ * @value: of the node
+ *
+ * Return: 1 if succeed 0 if fail
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *current = NULL;
-    hash_node_t *new_node = NULL;
-    unsigned long int index;
-    const char *empty = "";
-    if (!key || !key || strcmp(key, empty) == 0 || *key == '\0' || !value)
-    {
-        return 0;
-    }
+	hash_node_t *current = NULL;
+	hash_node_t *new_node = NULL;
+	unsigned long int index;
+	const char *empty = "";
 
-    new_node = create_node(key, value);
-    if (!new_node)
-    {
-        return 0;
-    }
+	if (!key || !key || strcmp(key, empty) == 0 || *key == '\0' || !value)
+	{
+		return (0);
+	}
+	new_node = create_node(key, value);
+	if (!new_node)
+	{
+		return (0);
+	}
+	index = key_index((const unsigned char *)key, ht->size);
+	current = ht->array[index];
 
-    index = key_index((const unsigned char *)key, ht->size);
-    current = ht->array[index];
+	if (current == NULL)
+	{
+		ht->array[index] = new_node;
+		return (1);
+	}
+	else if (strcmp(current->key, key) == 0)
+	{
+		free(current->key);
+		current->value = strdup(value);
 
-    if (current == NULL)
-    {
-        ht->array[index] = new_node;
-    }
-    else if (strcmp(current->key, key) == 0)
-    {
-        free(current->key);
-        current->value = strdup(value);
-
-        free(new_node);
-        return (1);
-    }
-    else
-    {
-        new_node->next = current;
-
-        ht->array[index] = new_node;
-    }
-    return (1);
+		free(new_node->key);
+		free(new_node->value);
+		free(new_node);
+		return (1);
+	}
+	else
+	{
+		new_node->next = current;
+		ht->array[index] = new_node;
+	}
+	return (1);
 }
