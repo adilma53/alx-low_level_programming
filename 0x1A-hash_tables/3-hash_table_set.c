@@ -35,9 +35,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *current = NULL;
 	hash_node_t *new_node = NULL;
 	unsigned long int index;
-	const char *empty = "";
 
-	if (!key || !key || strcmp(key, empty) == 0 || *key == '\0' || !value)
+	if (!key || !key || strcmp(key, "") == 0 || *key == '\0' || !value)
 	{
 		return (0);
 	}
