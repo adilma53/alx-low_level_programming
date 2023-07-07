@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 /**
- * hash_table_print - print a hash table
- * @ht: The hash table to prints
+ * hash_table_delete - free hash table
+ * @ht: The hash table to free
  *
  * Return: Nothing!
  */
@@ -9,59 +9,28 @@
 void hash_table_delete(hash_table_t *ht)
 {
 
-    hash_node_t *current = NULL;
-    hash_node_t *temp = NULL;
-    unsigned long int i = 0;
+	hash_node_t *current = NULL;
+	hash_node_t *temp = NULL;
+	unsigned long int i = 0;
 
-    if (!ht)
-        return;
+	if (!ht)
+		return;
 
-    while (i < ht->size)
-    {
-        current = ht->array[i];
+	while (i < ht->size)
+	{
+		current = ht->array[i];
 
-        while (current)
-        {
-            temp = current;
-            free(temp->key);
-            free(temp->value);
-            free(temp);
+		while (current)
+		{
+			temp = current;
+			free(temp->key);
+			free(temp->value);
+			free(temp);
 
-            current = current->next;
-        }
-        i++;
-    }
-    free(ht->array);
-    free(ht);
-}
-
-int main(void)
-{
-    hash_table_t *ht;
-    char *key;
-    char *value;
-
-    ht = hash_table_create(1024);
-    hash_table_set(ht, "c", "fun");
-    hash_table_set(ht, "python", "awesome");
-    hash_table_set(ht, "Bob", "and Kris love asm");
-    hash_table_set(ht, "N", "queens");
-    hash_table_set(ht, "Asterix", "Obelix");
-    hash_table_set(ht, "Betty", "Cool");
-    hash_table_set(ht, "98", "Battery Streetz");
-    key = strdup("Tim");
-    value = strdup("Britton");
-    hash_table_set(ht, key, value);
-    key[0] = '\0';
-    value[0] = '\0';
-    free(key);
-    free(value);
-    hash_table_set(ht, "98", "Battery Street");
-    hash_table_set(ht, "hetairas", "Bob");
-    hash_table_set(ht, "hetairas", "Bob Z");
-    hash_table_set(ht, "mentioner", "Bob");
-    hash_table_set(ht, "hetairas", "Bob Z Chu");
-    hash_table_print(ht);
-    hash_table_delete(ht);
-    return (EXIT_SUCCESS);
+			current = current->next;
+		}
+		i++;
+	}
+	free(ht->array);
+	free(ht);
 }
