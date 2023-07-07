@@ -26,7 +26,10 @@ void hash_table_print(const hash_table_t *ht)
 		while (current)
 		{
 			if (comma == 1)
-				printf(", ");
+			{
+				putchar(',');
+				putchar(' ');
+			}
 
 			comma = 1;
 			printf("'%s': '%s'", current->key, current->value);
