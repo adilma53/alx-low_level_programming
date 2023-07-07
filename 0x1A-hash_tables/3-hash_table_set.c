@@ -38,7 +38,7 @@ hash_node_t *create_node(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
     hash_node_t *new_node = NULL;
-    size_t index;
+    unsigned long int index;
 
     if (!key || !key || key == (const char *)"" || !value)
     {
@@ -65,13 +65,4 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     }
 
     return (1);
-}
-
-int main(void)
-{
-    hash_table_t *ht;
-
-    ht = hash_table_create(1024);
-    hash_table_set(ht, "betty", "cool");
-    return (EXIT_SUCCESS);
 }
