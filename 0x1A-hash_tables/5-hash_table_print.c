@@ -9,6 +9,7 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *current = NULL;
+	int comma = 0;
 	unsigned long int i = 0;
 
 	if (!ht)
@@ -24,12 +25,10 @@ void hash_table_print(const hash_table_t *ht)
 
 		while (current)
 		{
-			if (i > 1)
-			{
-				putchar(',');
-				putchar(' ');
-			}
+			if (comma == 1)
+				printf(", ");
 
+			comma = 1;
 			printf("'%s': '%s'", current->key, current->value);
 
 			current = current->next;
