@@ -1,14 +1,15 @@
 #include "hash_tables.h"
 
 /**
- * hash_djb2 - djb2 hashing algorithm.
+ * key_index - get index for buckets
  *
- * @str: value to hash
+ * @key: the key to hash
+ * @size: size of the hash table
  *
- * Return: returns the hash index
+ * Return: index
  */
 
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-    return (hash_djb2(key) % size);
+	return (hash_djb2(key) % size);
 }
