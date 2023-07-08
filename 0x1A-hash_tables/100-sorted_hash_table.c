@@ -5,7 +5,6 @@
  *
  * Return: Nothing!
  */
-
 shash_table_t *shash_table_create(unsigned long int size)
 {
     unsigned int i;
@@ -34,7 +33,6 @@ shash_table_t *shash_table_create(unsigned long int size)
  *
  * Return: new node
  */
-
 shash_node_t *create_s_node(const char *key, const char *value)
 {
     shash_node_t *new_node = malloc(sizeof(shash_node_t));
@@ -61,92 +59,70 @@ shash_node_t *create_s_node(const char *key, const char *value)
  *
  * Return: 1 if succeed 0 if fail
  */
-/*
-typedef struct shash_node_s
-{
-    char *key;
-    char *value;
-    struct shash_node_s *next;
-    struct shash_node_s *sprev;
-    struct shash_node_s *snext;
-} shash_node_t;
-
-
-typedef struct shash_table_s
-{
-    unsigned long int size;
-    shash_node_t **array;
-    shash_node_t *shead;
-    shash_node_t *stail;
-} shash_table_t;
-*/
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
     shash_node_t *current = NULL;
     shash_node_t *new_node = NULL;
+    unsigned long int index;
 
     shash_node_t *shead_copy = NULL;
-
-    unsigned long int index;
+    shash_node_t *prev;
 
     if (!ht || !key || strcmp(key, "") == 0 || *key == '\0' || !value)
     {
-        return (0);
+        return 0;
     }
 
     new_node = create_s_node(key, value);
     if (!new_node)
     {
-        return (0);
+        return 0;
     }
+
     index = key_index((const unsigned char *)key, ht->size);
     current = ht->array[index];
 
     if (current == NULL)
     {
         ht->array[index] = new_node;
-        /* linking sorted list */
-        shead_copy = ht->shead;
 
-        if (!shead_copy)
+        if (ht->shead == NULL)
         {
-            shead_copy = new_node;
+            ht->shead = new_node;
             ht->stail = new_node;
-
             return (1);
         }
-        while (shead_copy && key[0] > shead_copy->key[0])
+
+        shead_copy = ht->shead;
+        prev = NULL;
+
+        while (shead_copy != NULL && key[0] > shead_copy->key[0])
         {
+            prev = shead_copy;
             shead_copy = shead_copy->snext;
         }
-        /* if we reached the end of the list*/
-        if (!shead_copy->snext)
+
+        if (shead_copy == NULL)
         {
-            new_node->sprev = shead_copy;
-            shead_copy->snext = new_node;
-
+            prev->snext = new_node;
+            new_node->sprev = prev;
             ht->stail = new_node;
-
-            return (1);
         }
-        /* if we suppose to add at head*/
-        if (!shead_copy->sprev && key[0] < shead_copy->key[0])
+        else if (prev == NULL)
         {
             new_node->snext = shead_copy;
             shead_copy->sprev = new_node;
-
             ht->shead = new_node;
-
-            return (1);
+        }
+        else
+        {
+            prev->snext = new_node;
+            new_node->sprev = prev;
+            new_node->snext = shead_copy;
+            shead_copy->sprev = new_node;
         }
 
-        new_node->snext = shead_copy;
-        new_node->sprev = shead_copy->sprev;
-
-        shead_copy->sprev->snext = new_node;
-        shead_copy->sprev = new_node;
-
-        return (1);
+        return 1;
     }
     else if (strcmp(current->key, key) == 0)
     {
@@ -156,24 +132,129 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
         free(new_node->key);
         free(new_node->value);
         free(new_node);
-        return (1);
+        return 1;
     }
     else
     {
-        new_node->next = ht->array[index];
+        while (current->next != NULL)
+        {
+            if (strcmp(current->next->key, key) == 0)
+            {
+                free(new_node->key);
+                free(new_node->value);
+                free(new_node);
+                return 0; /* key already exists in collision chain */
+            }
+            current = current->next;
+        }
 
-        /* linking nodes*/
-
-        new_node->sprev = current->sprev;
-        new_node->snext = current->snext;
-
-        current->sprev->next = new_node;
-        current->snext->sprev = new_node;
-
-        current->sprev = NULL;
-        current->snext = NULL;
-
-        ht->array[index] = new_node;
+        current->next = new_node;
+        new_node->next = NULL;
     }
-    return (1);
+
+    return 1;
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+void shash_table_print(const shash_table_t *ht)
+{
+    shash_node_t *node;
+    int first = 1;
+
+    if (ht == NULL)
+        return;
+
+    printf("{");
+    node = ht->shead;
+    while (node != NULL)
+    {
+        if (first)
+            first = 0;
+        else
+            printf(", ");
+        printf("'%s': '%s'", node->key, node->value);
+        node = node->snext;
+    }
+    printf("}\n");
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+void shash_table_print_rev(const shash_table_t *ht)
+{
+    shash_node_t *node;
+    int first = 1;
+
+    if (ht == NULL)
+        return;
+
+    printf("{");
+    node = ht->stail;
+    while (node != NULL)
+    {
+        if (first)
+            first = 0;
+        else
+            printf(", ");
+        printf("'%s': '%s'", node->key, node->value);
+        node = node->sprev;
+    }
+    printf("}\n");
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+void shash_table_delete(shash_table_t *ht)
+{
+
+    shash_node_t *current = NULL;
+    shash_node_t *temp = NULL;
+    unsigned long int i = 0;
+
+    if (!ht)
+        return;
+
+    while (i < ht->size)
+    {
+        current = ht->array[i];
+
+        while (current)
+        {
+            temp = current;
+            free(temp->key);
+            free(temp->value);
+            free(temp);
+
+            current = current->next;
+        }
+        i++;
+    }
+    free(ht->array);
+    free(ht);
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+int main(void)
+{
+    shash_table_t *ht;
+
+    ht = shash_table_create(1024);
+    shash_table_set(ht, "y", "0");
+    shash_table_print(ht);
+    shash_table_set(ht, "j", "1");
+    shash_table_print(ht);
+    shash_table_set(ht, "c", "2");
+    shash_table_print(ht);
+    shash_table_set(ht, "b", "3");
+    shash_table_print(ht);
+    shash_table_set(ht, "z", "4");
+    shash_table_print(ht);
+    shash_table_set(ht, "n", "5");
+    shash_table_print(ht);
+    shash_table_set(ht, "a", "6");
+    shash_table_print(ht);
+    shash_table_set(ht, "m", "7");
+    shash_table_print(ht);
+    shash_table_print_rev(ht);
+
+    shash_table_delete(ht);
+
+    return (EXIT_SUCCESS);
 }
