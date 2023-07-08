@@ -69,83 +69,76 @@ shash_node_t *create_s_node(const char *key, const char *value)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	shash_node_t *current = NULL;
+	shash_node_t *new, *tmp;
+	char *value_copy;
 	unsigned long int index;
-	shash_node_t *shead_copy = NULL, *prev, *new_node = NULL;
 
-	if (!ht || !key || strcmp(key, "") == 0 || *key == '\0' || !value)
-		return 0;
-	new_node = create_s_node(key, value);
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
+		return (0);
 
-	if (!new_node)
-		return 0;
+	value_copy = strdup(value);
+	if (value_copy == NULL)
+		return (0);
+
 	index = key_index((const unsigned char *)key, ht->size);
-	current = ht->array[index];
-
-	if (current == NULL)
+	tmp = ht->shead;
+	while (tmp)
 	{
-		ht->array[index] = new_node;
-		if (ht->shead == NULL)
+		if (strcmp(tmp->key, key) == 0)
 		{
-			ht->shead = new_node;
-			ht->stail = new_node;
+			free(tmp->value);
+			tmp->value = value_copy;
 			return (1);
 		}
-		shead_copy = ht->shead;
-		prev = NULL;
-		while (shead_copy != NULL && key[0] > shead_copy->key[0])
-		{
-			prev = shead_copy;
-			shead_copy = shead_copy->snext;
-		}
-		if (shead_copy == NULL)
-		{
-			prev->snext = new_node;
-			new_node->sprev = prev;
-			ht->stail = new_node;
-		}
-		else if (prev == NULL)
-		{
-			new_node->snext = shead_copy;
-			shead_copy->sprev = new_node;
-			ht->shead = new_node;
-		}
-		else
-		{
-			prev->snext = new_node;
-			new_node->sprev = prev;
-			new_node->snext = shead_copy;
-			shead_copy->sprev = new_node;
-		}
-		return 1;
+		tmp = tmp->snext;
 	}
-	else if (strcmp(current->key, key) == 0)
-	{
-		free(current->value);
-		current->value = strdup(value);
 
-		free(new_node->key);
-		free(new_node->value);
-		free(new_node);
-		return 1;
+	new = malloc(sizeof(shash_node_t));
+	if (new == NULL)
+	{
+		free(value_copy);
+		return (0);
+	}
+	new->key = strdup(key);
+	if (new->key == NULL)
+	{
+		free(value_copy);
+		free(new);
+		return (0);
+	}
+	new->value = value_copy;
+	new->next = ht->array[index];
+	ht->array[index] = new;
+
+	if (ht->shead == NULL)
+	{
+		new->sprev = NULL;
+		new->snext = NULL;
+		ht->shead = new;
+		ht->stail = new;
+	}
+	else if (strcmp(ht->shead->key, key) > 0)
+	{
+		new->sprev = NULL;
+		new->snext = ht->shead;
+		ht->shead->sprev = new;
+		ht->shead = new;
 	}
 	else
 	{
-		while (current->next != NULL)
-		{
-			if (strcmp(current->next->key, key) == 0)
-			{
-				free(new_node->key);
-				free(new_node->value);
-				free(new_node);
-				return 0; /* key already exists in collision chain */
-			}
-			current = current->next;
-		}
-		current->next = new_node;
-		new_node->next = NULL;
+		tmp = ht->shead;
+		while (tmp->snext != NULL && strcmp(tmp->snext->key, key) < 0)
+			tmp = tmp->snext;
+		new->sprev = tmp;
+		new->snext = tmp->snext;
+		if (tmp->snext == NULL)
+			ht->stail = new;
+		else
+			tmp->snext->sprev = new;
+		tmp->snext = new;
 	}
-	return 1;
+
+	return (1);
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /**
@@ -239,3 +232,28 @@ void shash_table_delete(shash_table_t *ht)
 	free(ht);
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+int main(void)
+{
+	shash_table_t *ht;
+
+	ht = shash_table_create(1024);
+	shash_table_set(ht, "y", "0");
+	shash_table_print(ht);
+	shash_table_set(ht, "j", "1");
+	shash_table_print(ht);
+	shash_table_set(ht, "c", "2");
+	shash_table_print(ht);
+	shash_table_set(ht, "b", "3");
+	shash_table_print(ht);
+	shash_table_set(ht, "z", "4");
+	shash_table_print(ht);
+	shash_table_set(ht, "n", "5");
+	shash_table_print(ht);
+	shash_table_set(ht, "a", "6");
+	shash_table_print(ht);
+	shash_table_set(ht, "m", "7");
+	shash_table_print(ht);
+	shash_table_print_rev(ht);
+	shash_table_delete(ht);
+	return (EXIT_SUCCESS);
+}
