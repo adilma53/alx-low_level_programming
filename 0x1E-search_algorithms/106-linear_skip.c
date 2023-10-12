@@ -1,5 +1,4 @@
 #include "search_algos.h"
-
 /**
  * linear_search - binary search algorithm function
  * @list: list to search
