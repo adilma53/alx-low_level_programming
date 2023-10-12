@@ -1,13 +1,11 @@
-#ifndef SEARCH_ALGOS_H
-#define SEARCH_ALGOS_H
-#include <stdio.h>
+#ifndef search_algos_H
+#define search_algos_H
 
 #include    <stdio.h>
 #include    <stdio.h>
 #include    <stddef.h>
 #include    <stdlib.h>
 #include    <math.h>
-
 /**
  * struct listint_s - Singly linked list.
  * @n: Integer stored at the node.
@@ -23,7 +21,6 @@ typedef struct listint_s
 	size_t index;
 	struct listint_s *next;
 } listint_t;
-
 /**
  * struct skiplist_s - Singly linked list with an express lane.
  * @n: Integer stored at the node.
