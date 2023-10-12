@@ -1,51 +1,62 @@
 #include "search_algos.h"
+/**
+ * _helper - helper
+ * @array: array to search in
+ * @left: left
+ * @right: right
+ * @value: value to search for
+ *
+ * Return: return first accurence of target
+*/
+int _helper(int *array, size_t left, size_t right, int value)
+{
+	size_t i;
+
+	if (!array)
+		return (-1);
+
+	while (right >= left)
+	{
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
+		{
+			printf("%d, ", array[i]);
+		}
+		printf("%d\n", array[i]);
+		i = (left + right) / 2;
+		if (array[i] == value)
+			return (i);
+		else if (array[i] < value)
+			left = i + 1;
+		else
+			right = i - 1;
+	}
+	return (-1);
+}
 
 /**
- * exponential_search - search for value in array
+ * exponential_search - main search function uses exponential search algorithm
  * @array: array to search in
  * @size: size of array
  * @value: value to search for
  *
- * Return: return first accurence of target or -1 if not found
+ * Return: return first accurence of target
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	if (array == NULL || size == 0)
+	size_t i = 0, r;
+
+	if (!array)
 		return (-1);
 
-	int bound = 1;
-
-	while (bound < (int)size && array[bound] < value)
+	if (array[0] != value)
 	{
-		printf("Value checked array[%d] = [%d]\n", bound, array[bound]);
-		bound *= 2;
-	}
-
-	int left = bound / 2;
-	int right = (bound < (int)size - 1) ? bound : (int)size - 1;
-
-	printf("Value found between indexes [%d] and [%d]\n", left, right);
-
-	while (left <= right)
-	{
-		int mid = left + (right - left) / 2;
-
-		printf("Searching in array: ");
-		for (int i = left; i <= right; i++)
+		for (i = 1; i < size && array[i] <= value; i = i * 2)
 		{
-			printf("%d", array[i]);
-			if (i < right)
-				printf(", ");
+			printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		}
-		printf("\n");
-
-		if (array[mid] == value)
-			return (mid);
-		else if (array[mid] < value)
-			left = mid + 1;
-		else
-			right = mid - 1;
 	}
-
-	return (-1);
+	r = i < size ? i : size - 1;
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, r);
+	return (_helper(array, i / 2, r, value));
 }
