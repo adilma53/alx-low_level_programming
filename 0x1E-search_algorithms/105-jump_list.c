@@ -1,14 +1,14 @@
 #include "search_algos.h"
 
- /**
- * jump_list - search for value in array
- * using the interpolation search algorithm
- * @array: array to search in
- * @size: size of array
+/**
+ * jump_list - search for value in list uses jump search algorithm
+ * @list: list to search in
+ * @size: size of list
  * @value: value to search for
  *
- * Return: first index where value is located
+ * Return: return first accurence of target
  */
+
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	size_t step, step_size;
